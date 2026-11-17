@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>51hlw入口-资源导航与站内入口索引</title>
+<meta name="description" content="51hlw入口收录资源站访问路径、镜像地址判断方法与常见打不开的处理步骤，整理入口校验清单、频道索引与用户反馈，帮助按日期核对可用线路。">
+<meta name="keywords" content="51hlw入口">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f2f4f'/%3E%3Cpath d='M18 22h28M18 32h20M18 42h28' stroke='%234fd1c5' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='48' cy='32' r='6' fill='%23f5b642'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#12202c;
+  --ink-2:#33475a;
+  --muted:#5f7285;
+  --line:#d7e0e8;
+  --line-soft:#e8eef4;
+  --bg:#f4f7fa;
+  --card:#ffffff;
+  --brand:#0f2f4f;
+  --brand-2:#17568a;
+  --accent:#0d8b7f;
+  --accent-soft:#e2f4f1;
+  --warn:#b45309;
+  --warn-soft:#fdf1e0;
+  --radius-s:6px;
+  --radius-m:10px;
+  --radius-l:16px;
+  --shadow-s:0 1px 2px rgba(18,32,44,.06),0 2px 8px rgba(18,32,44,.05);
+  --shadow-m:0 4px 18px rgba(18,32,44,.10);
+  --sp-1:6px;--sp-2:10px;--sp-3:16px;--sp-4:24px;--sp-5:34px;--sp-6:48px;
+  --fs-h1:clamp(1.6rem,3.6vw,2.35rem);
+  --fs-h2:clamp(1.18rem,2.1vw,1.45rem);
+  --fs-h3:1.02rem;
+  --fs-body:.95rem;
+  --fs-s:.84rem;
+  --fs-xs:.76rem;
+  --stick:96px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:var(--fs-body);
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--brand-2);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
+p{margin:0 0 .85em}
+ul,ol{margin:0 0 .85em;padding-left:1.15em}
+li{margin-bottom:.35em}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* ===== 吸顶：公告条 + 页头 ===== */
+.stickwrap{
+  position:sticky;top:0;z-index:60;
+  background:var(--card);
+  box-shadow:var(--shadow-s);
+}
+.notice{
+  background:linear-gradient(90deg,#0f2f4f,#17568a 60%,#0d8b7f);
+  color:#eaf3fb;font-size:var(--fs-xs);
+}
+.notice .in{
+  max-width:1200px;margin:0 auto;padding:7px 18px;
+  display:flex;gap:12px;align-items:center;flex-wrap:wrap;
+}
+.notice b{color:#f5d68a;font-weight:700}
+.notice .dot{width:6px;height:6px;border-radius:50%;background:#7ef0d9;flex:none}
+.notice a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+.sitehead{background:var(--card);border-bottom:1px solid var(--line)}
+.head-in{
+  max-width:1200px;margin:0 auto;padding:10px 18px;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand svg{width:38px;height:38px;flex:none}
+.brand .txt{display:flex;flex-direction:column;line-height:1.15}
+.brand .logo-text{font-size:1.14rem;font-weight:800;color:var(--brand);letter-spacing:.3px}
+.brand .sub{font-size:var(--fs-xs);color:var(--muted);letter-spacing:.6px}
+.head-nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+.head-nav a{
+  padding:6px 10px;border-radius:var(--radius-s);color:var(--ink-2);
+  font-size:var(--fs-s);white-space:nowrap;
+}
+.head-nav a:hover{background:var(--line-soft);text-decoration:none;color:var(--brand)}
+.head-actions{display:flex;align-items:center;gap:8px}
+.search{
+  display:flex;align-items:center;border:1px solid var(--line);
+  border-radius:999px;padding:3px 4px 3px 12px;background:#fbfdff;
+}
+.search input{
+  border:0;background:transparent;font:inherit;font-size:var(--fs-s);
+  width:150px;padding:5px 4px;color:var(--ink);
+}
+.search input:focus{outline:none}
+.search button{
+  border:0;background:var(--brand);color:#fff;border-radius:999px;
+  padding:6px 12px;font:inherit;font-size:var(--fs-xs);cursor:pointer;
+}
+.menu-btn{
+  display:none;border:1px solid var(--line);background:var(--card);
+  border-radius:var(--radius-s);padding:7px 11px;font:inherit;font-size:var(--fs-s);
+  cursor:pointer;color:var(--brand);align-items:center;gap:6px;
+}
+.menu-btn .bars{display:inline-block;width:14px;height:10px;position:relative}
+.menu-btn .bars::before,.menu-btn .bars::after,.menu-btn .bars span{
+  content:"";position:absolute;left:0;right:0;height:2px;background:var(--brand);border-radius:2px;
+}
+.menu-btn .bars::before{top:0}
+.menu-btn .bars span{top:4px}
+.menu-btn .bars::after{top:8px}
+.searchmsg{max-width:1200px;margin:0 auto;padding:0 18px 10px;font-size:var(--fs-xs);color:var(--warn);display:none}
+.searchmsg.on{display:block}
+
+/* ===== 首屏 ===== */
+.hero{
+  background:
+    radial-gradient(900px 320px at 12% -10%,rgba(13,139,127,.14),transparent 60%),
+    radial-gradient(700px 300px at 92% 0%,rgba(23,86,138,.13),transparent 62%),
+    linear-gradient(180deg,#ffffff,#eef4f9);
+  border-bottom:1px solid var(--line);
+}
+.hero-in{
+  max-width:1200px;margin:0 auto;padding:var(--sp-6) 18px var(--sp-5);
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--sp-5);align-items:center;
+}
+.hero .kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent-soft);color:#0a6c62;border:1px solid #bfe6e0;
+  border-radius:999px;padding:3px 12px;font-size:var(--fs-xs);letter-spacing:.5px;margin-bottom:14px;
+}
+.hero h1{font-size:var(--fs-h1);color:var(--brand);letter-spacing:-.3px;margin-bottom:12px}
+.hero .lead{color:var(--ink-2);font-size:1rem;max-width:34em}
+.hero-facts{display:flex;gap:var(--sp-4);flex-wrap:wrap;margin:18px 0 22px}
+.hero-facts div{min-width:96px}
+.hero-facts b{display:block;font-size:1.32rem;color:var(--brand);line-height:1.2}
+.hero-facts span{font-size:var(--fs-xs);color:var(--muted)}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:10px 20px;border-radius:999px;font-size:var(--fs-s);font-weight:600;
+  border:1px solid transparent;transition:transform .16s ease,box-shadow .16s ease;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:var(--shadow-s)}
+.btn-primary:hover{box-shadow:var(--shadow-m)}
+.btn-ghost{background:#fff;color:var(--brand);border-color:var(--line)}
+/* 原创首屏构图 */
+.hero-art{
+  position:relative;aspect-ratio:1/.86;min-height:250px;
+  background:linear-gradient(160deg,#ffffff,#eaf2f8);
+  border:1px solid var(--line);border-radius:var(--radius-l);
+  box-shadow:var(--shadow-m);overflow:hidden;
+}
+.hero-art svg{position:absolute;inset:0;width:100%;height:100%}
+.hero-art .tag{
+  position:absolute;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius-s);padding:5px 9px;font-size:var(--fs-xs);
+  color:var(--ink-2);box-shadow:var(--shadow-s);
+}
+.hero-art .t1{left:8%;top:12%}
+.hero-art .t2{right:6%;top:31%}
+.hero-art .t3{left:14%;bottom:13%}
+.hero-art .t4{right:11%;bottom:26%}
+.hero-art .t5{left:40%;top:47%;background:var(--brand);color:#fff;border-color:var(--brand)}
+
+/* ===== 布局 ===== */
+.wrap{max-width:1200px;margin:0 auto;padding:0 18px}
+.layout{
+  display:grid;grid-template-columns:minmax(0,1fr) 306px;
+  gap:var(--sp-5);align-items:start;padding:var(--sp-5) 0 var(--sp-6);
+}
+main{min-width:0}
+section[id]{scroll-margin-top:var(--stick)}
+.block{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius-l);padding:var(--sp-4) var(--sp-4) var(--sp-3);
+  margin-bottom:var(--sp-4);box-shadow:var(--shadow-s);
+}
+.block > h2{
+  font-size:var(--fs-h2);color:var(--brand);
+  display:flex;align-items:center;gap:10px;margin-bottom:6px;
+}
+.block > h2::before{
+  content:"";width:5px;height:1.05em;border-radius:3px;background:var(--accent);flex:none;
+}
+.block .h2note{font-size:var(--fs-xs);color:var(--muted);margin:0 0 16px;padding-left:15px}
+h3{font-size:var(--fs-h3);color:var(--brand);margin:18px 0 8px}
+h4{font-size:var(--fs-s);color:var(--ink);margin:12px 0 6px}
+
+/* 网格卡片 */
+.grid{display:grid;gap:var(--sp-3)}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{
+  border:1px solid var(--line);border-radius:var(--radius-m);
+  padding:14px;background:#fcfdff;transition:transform .16s ease,box-shadow .16s ease,border-color .16s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-m);border-color:#c3d5e4}
+.card h4{margin-top:0;font-size:.97rem;color:var(--brand)}
+.card p{font-size:var(--fs-s);color:var(--ink-2);margin-bottom:.5em}
+.card .meta{font-size:var(--fs-xs);color:var(--muted);display:flex;gap:10px;flex-wrap:wrap}
+.chip{
+  display:inline-block;background:var(--accent-soft);color:#0a6c62;
+  border-radius:999px;padding:1px 9px;font-size:var(--fs-xs);border:1px solid #c5e8e3;
+}
+.chip.warn{background:var(--warn-soft);color:var(--warn);border-color:#f2dcb8}
+.chip.plain{background:#eef3f8;color:var(--ink-2);border-color:var(--line)}
+
+/* 紧凑列表 */
+.tlist{list-style:none;padding:0;margin:0}
+.tlist li{
+  display:flex;gap:12px;align-items:baseline;
+  padding:10px 2px;border-bottom:1px dashed var(--line-soft);margin:0;
+}
+.tlist li:last-child{border-bottom:0}
+.tlist .date{
+  flex:none;font-variant-numeric:tabular-nums;font-size:var(--fs-xs);
+  color:var(--muted);width:64px;
+}
+.tlist .t{flex:1;min-width:0;font-size:var(--fs-s)}
+.tlist .t a{color:var(--ink);font-weight:600}
+.tlist .t a:hover{color:var(--brand-2)}
+.tlist .t span{color:var(--muted);font-size:var(--fs-xs);display:block;margin-top:2px}
+
+/* 频道索引 */
+.idx{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.idx li{margin:0}
+.idx a{
+  display:inline-block;border:1px solid var(--line);background:#fbfdff;
+  border-radius:var(--radius-s);padding:6px 12px;font-size:var(--fs-s);color:var(--ink-2);
+}
+.idx a:hover{border-color:var(--accent);color:var(--brand);text-decoration:none;background:var(--accent-soft)}
+
+/* 深度解析 */
+.article p{color:#22323f}
+.article .pull{
+  border-left:4px solid var(--accent);background:#f7fbfa;
+  padding:12px 16px;margin:16px 0;border-radius:0 var(--radius-s) var(--radius-s) 0;
+}
+.article .pull strong{color:var(--brand)}
+.cmp{width:100%;border-collapse:collapse;font-size:var(--fs-s);margin:10px 0 14px}
+.cmp th,.cmp td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.cmp th{background:#eff4f9;color:var(--brand);font-weight:700}
+.cmp td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 14px}
+.steps li{
+  counter-increment:s;position:relative;padding-left:40px;margin-bottom:12px;font-size:var(--fs-s);
+}
+.steps li::before{
+  content:counter(s);position:absolute;left:0;top:1px;
+  width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:var(--fs-xs);font-weight:700;
+}
+.facts{border:1px solid var(--line);border-radius:var(--radius-m);padding:12px 14px;background:#fcfdff}
+.facts dt{font-weight:700;color:var(--brand);font-size:var(--fs-s);margin-top:8px}
+.facts dt:first-child{margin-top:0}
+.facts dd{margin:2px 0 0;font-size:var(--fs-s);color:var(--ink-2)}
+
+/* 问答 */
+details{
+  border:1px solid var(--line);border-radius:var(--radius-m);
+  background:#fcfdff;margin-bottom:10px;overflow:hidden;
+}
+details[open]{border-color:#c3d5e4;background:#fff}
+summary{
+  cursor:pointer;padding:12px 16px;font-size:var(--fs-s);font-weight:600;color:var(--brand);
+  list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"+";flex:none;color:var(--accent);font-weight:700;font-size:1.05rem;line-height:1;
+}
+details[open] summary::after{content:"–"}
+details .ans{padding:0 16px 14px;font-size:var(--fs-s);color:var(--ink-2)}
+
+/* 评论 */
+.cmt{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.cmt li{
+  border:1px solid var(--line-soft);border-radius:var(--radius-m);
+  padding:12px 14px;background:#fcfdff;margin:0;
+}
+.cmt .who{display:flex;gap:8px;align-items:center;font-size:var(--fs-xs);color:var(--muted);margin-bottom:6px;flex-wrap:wrap}
+.cmt .av{
+  width:24px;height:24px;border-radius:50%;background:var(--brand);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:var(--fs-xs);flex:none;
+}
+.cmt .who b{color:var(--ink);font-size:var(--fs-s)}
+.cmt p{font-size:var(--fs-s);margin:0;color:#22323f}
+
+/* 标签索引 */
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.tags li{margin:0}
+.tags a{
+  display:inline-block;padding:5px 12px;border-radius:999px;
+  background:#eef3f8;border:1px solid var(--line);color:var(--ink-2);font-size:var(--fs-xs);
+}
+.tags a:hover{background:var(--brand);color:#fff;border-color:var(--brand);text-decoration:none}
+
+/* 时间线 */
+.tl{list-style:none;padding:0;margin:0;position:relative}
+.tl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl li{position:relative;padding-left:26px;margin-bottom:14px}
+.tl li::before{
+  content:"";position:absolute;left:0;top:7px;width:12px;height:12px;border-radius:50%;
+  background:#fff;border:2px solid var(--accent);
+}
+.tl b{display:block;font-size:var(--fs-s);color:var(--brand)}
+.tl span{font-size:var(--fs-xs);color:var(--muted);display:block}
+.tl p{font-size:var(--fs-s);margin:4px 0 0;color:var(--ink-2)}
+
+/* 引语卡 */
+.quote{
+  border:1px solid #cfe3e0;background:linear-gradient(180deg,#f4fbfa,#eef7f6);
+  border-radius:var(--radius-m);padding:16px 18px;margin:0;
+}
+.quote blockquote{margin:0 0 8px;font-size:.97rem;color:#18414a}
+.quote figcaption{font-size:var(--fs-xs);color:var(--muted)}
+
+/* 侧栏 */
+.side{display:grid;gap:var(--sp-3);position:sticky;top:var(--stick)}
+.side .block{margin-bottom:0;padding:16px}
+.side h2,.side h3{font-size:.98rem;color:var(--brand);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.side h2::before{content:"";width:4px;height:1em;background:var(--accent);border-radius:2px}
+.snav{list-style:none;padding:0;margin:0}
+.snav li{margin:0}
+.snav a{
+  display:block;padding:6px 10px;border-radius:var(--radius-s);
+  font-size:var(--fs-s);color:var(--ink-2);border-left:3px solid transparent;
+}
+.snav a:hover{background:#f3f8fc;text-decoration:none;color:var(--brand)}
+.snav a.active{background:var(--accent-soft);color:#0a6c62;border-left-color:var(--accent);font-weight:600}
+.side .mini{font-size:var(--fs-xs);color:var(--muted);line-height:1.7}
+.side .mini b{color:var(--ink)}
+.side .kv{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line-soft);font-size:var(--fs-xs)}
+.side .kv:last-child{border-bottom:0}
+.side .kv span{color:var(--muted)}
+.side .kv b{color:var(--brand);font-variant-numeric:tabular-nums}
+
+/* 页尾 */
+footer.sitefoot{
+  background:var(--brand);color:#cfe0ee;margin-top:0;
+}
+.foot-in{max-width:1200px;margin:0 auto;padding:var(--sp-5) 18px var(--sp-4)}
+.foot-top{display:grid;grid-template-columns:minmax(0,1.2fr) repeat(3,minmax(0,.8fr));gap:var(--sp-4)}
+.foot-brand{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.foot-brand svg{width:34px;height:34px}
+.foot-brand b{color:#fff;font-size:1.05rem;letter-spacing:.4px}
+footer.sitefoot h3{color:#fff;font-size:.88rem;margin:0 0 8px;letter-spacing:.5px}
+footer.sitefoot ul{list-style:none;padding:0;margin:0;font-size:var(--fs-xs)}
+footer.sitefoot li{margin-bottom:6px}
+footer.sitefoot a{color:#bcd4e6}
+footer.sitefoot a:hover{color:#fff}
+.foot-desc{font-size:var(--fs-s);color:#b9d0e3;max-width:30em}
+.foot-bar{
+  border-top:1px solid rgba(255,255,255,.16);margin-top:var(--sp-4);padding-top:14px;
+  font-size:var(--fs-xs);color:#9fbdd4;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.foot-bar a{color:#bcd4e6}
+
+/* 回到顶部 */
+.totop{
+  position:fixed;right:16px;bottom:18px;z-index:70;
+  width:42px;height:42px;border-radius:50%;border:1px solid var(--line);
+  background:#fff;color:var(--brand);cursor:pointer;font-size:1rem;
+  display:none;align-items:center;justify-content:center;box-shadow:var(--shadow-m);
+}
+.totop.on{display:flex}
+.totop:hover{background:var(--brand);color:#fff}
+
+/* 平板 / 手机 */
+@media (max-width:1000px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .side{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-in{grid-template-columns:minmax(0,1fr)}
+  .hero-art{order:-1;max-width:520px}
+  .foot-top{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:660px){
+  :root{--stick:104px}
+  .head-in{padding:9px 14px;gap:10px}
+  .head-nav{
+    display:none;order:5;width:100%;margin-left:0;
+    border-top:1px solid var(--line-soft);padding-top:8px;
+  }
+  .head-nav.open{display:flex}
+  .head-nav a{flex:1 1 46%;text-align:center;background:#f6fafd;border:1px solid var(--line-soft)}
+  .menu-btn{display:inline-flex}
+  .head-actions{margin-left:auto}
+  .search input{width:96px}
+  .g3,.g2{grid-template-columns:minmax(0,1fr)}
+  .side{grid-template-columns:minmax(0,1fr)}
+  .hero-in{padding-top:var(--sp-4)}
+  .hero-facts{gap:16px}
+  .block{padding:16px 14px 10px;border-radius:var(--radius-m)}
+  .foot-top{grid-template-columns:minmax(0,1fr)}
+  .tl li{padding-left:22px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .card:hover,.btn:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶：公告条 + 页头 -->
+<div class="stickwrap">
+  <div class="notice" role="note" aria-label="站点公告">
+    <div class="in">
+      <span class="dot" aria-hidden="true"></span>
+      <span><b>公告</b>：11月7日 21:30 完成入口清单第 4 轮校验，主线 12 条中 9 条可直连，3 条需切换备用线路。</span>
+      <a href="/#verify">查看校验记录</a>
+      <a href="/#latest">最近更新</a>
+    </div>
+  </div>
+  <header class="sitehead">
+    <div class="head-in">
+      <a class="brand" href="/#top" aria-label="51hlw入口 首页">
+        <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#0f2f4f"/>
+          <path d="M17 21h30M17 32h21M17 43h30" stroke="#4fd1c5" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="48" cy="32" r="6.5" fill="#f5b642"/>
+        </svg>
+        <span class="txt">
+          <span class="logo-text">51hlw入口</span>
+          <span class="sub">访问路径与线路核对</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="headNav">
+        <span class="bars" aria-hidden="true"><span></span></span>频道
+      </button>
+      <nav class="head-nav" id="headNav" aria-label="主题导航">
+        <a href="/#overview">线路概览</a>
+        <a href="/#picks">精选推荐</a>
+        <a href="/#latest">最新更新</a>
+        <a href="/#channels">频道索引</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">体验指南</a>
+        <a href="/#faq">常见问题</a>
+      </nav>
+      <div class="head-actions">
+        <form class="search" id="searchForm" role="search" aria-label="站内查找">
+          <input type="search" id="q" placeholder="查线路 / 频道 / 报错码" aria-label="输入关键词">
+          <button type="submit">查找</button>
+        </form>
+      </div>
+    </div>
+    <p class="searchmsg" id="searchMsg" role="status" aria-live="polite"></p>
+  </header>
+</div>
+
+<!-- 首屏 -->
+<div class="hero" id="top">
+  <div class="hero-in">
+    <div>
+      <span class="kicker">入口清单 · 11月8日更新</span>
+      <h1>51hlw入口</h1>
+      <p class="lead">把资源站的访问路径、备用线路和打不开时的处理顺序整理成可核对的清单。每条记录标注校验时间、返回状态与适用网络，遇到跳转异常先比对清单再切换。</p>
+      <div class="hero-facts">
+        <div><b>12</b><span>主线入口记录</span></div>
+        <div><b>9</b><span>11月7日可直连</span></div>
+        <div><b>38</b><span>已归档报错样本</span></div>
+        <div><b>4</b><span>轮校验时间点</span></div>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="/#verify">查看校验清单</a>
+        <a class="btn btn-ghost" href="/#guide">先学排查步骤</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 344" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#dcebf6"/><stop offset="1" stop-color="#eefaf7"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="400" height="344" fill="url(#hg)"/>
+        <g stroke="#b9d3e4" stroke-width="1.4" fill="none">
+          <path d="M40 250 C110 210 150 280 220 240 S330 190 366 226"/>
+          <path d="M40 286 C120 256 168 300 236 268 S336 226 366 254"/>
+        </g>
+        <g fill="none" stroke="#17568a" stroke-width="3" stroke-linecap="round">
+          <rect x="86" y="76" width="132" height="86" rx="10" fill="#ffffff" opacity=".92"/>
+          <path d="M104 102h82M104 120h60M104 138h74"/>
+        </g>
+        <g fill="none" stroke="#0d8b7f" stroke-width="3" stroke-linecap="round">
+          <rect x="196" y="168" width="120" height="76" rx="10" fill="#ffffff" opacity=".94"/>
+          <path d="M214 192h68M214 210h46M214 228h60"/>
+        </g>
+        <circle cx="308" cy="96" r="22" fill="#f5b642" opacity=".92"/>
+        <path d="M298 96l7 8 14-16" stroke="#0f2f4f" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <g stroke="#0f2f4f" stroke-width="2" opacity=".5">
+          <path d="M60 60h22M71 49v22"/>
+        </g>
+        <g stroke="#0d8b7f" stroke-width="2" opacity=".55">
+          <path d="M330 286h20M340 276v20"/>
+        </g>
+      </svg>
+      <span class="tag t1">主线 · 状态 200</span>
+      <span class="tag t2">备用 · 需切换</span>
+      <span class="tag t3">校验时间 21:30</span>
+      <span class="tag t4">报错码 403</span>
+      <span class="tag t5">按日期核对</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="layout">
+    <main>
+
+      <!-- 1 领域概览 -->
+      <section class="block" id="overview">
+        <h2>线路概览与入口校验清单</h2>
+        <p class="h2note">记录口径：每次校验保存访问时间、返回状态码、是否发生跳转、适用网络环境四项。</p>
+        <div class="grid g3">
+          <div class="card">
+            <h4>直连线路 A 组</h4>
+            <p>域名结构为三级子域，11月7日 21:30 返回 200，未检测到二次跳转，适合固定宽带。</p>
+            <div class="meta"><span class="chip">状态 200</span><span>11-07 21:30</span></div>
+          </div>
+          <div class="card">
+            <h4>直连线路 B 组</h4>
+            <p>与 A 组同源不同节点，移动网络下首次握手耗时约 1.8 秒，重复访问降至 0.9 秒。</p>
+            <div class="meta"><span class="chip">状态 200</span><span>11-07 20:12</span></div>
+          </div>
+          <div class="card">
+            <h4>备用线路（需手动切换）</h4>
+            <p>11月6日 18:40 出现 302 跳转至提示页，11月7日复测恢复，建议作为第三顺位备用。</p>
+            <div class="meta"><span class="chip warn">曾 302</span><span>11-07 19:05</span></div>
+          </div>
+          <div class="card">
+            <h4>镜像地址判定要素</h4>
+            <p>看证书签发主体、备案号是否一致、页面顶部版权年份三项，三项全同才视为同一站点镜像。</p>
+            <div class="meta"><span class="chip plain">判定方法</span></div>
+          </div>
+          <div class="card">
+            <h4>节点延迟样本</h4>
+            <p>11月7日 20:00 至 21:00 采集 60 次请求，华东节点中位延迟 142ms，华南 168ms。</p>
+            <div class="meta"><span class="chip">60 次采样</span><span>11-07</span></div>
+          </div>
+          <div class="card">
+            <h4>入口清单口径说明</h4>
+            <p>清单只记录可复现的状态，不承诺长期可用；线路状态变化后 24 小时内补录一次。</p>
+            <div class="meta"><span class="chip plain">记录规则</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 精选内容推荐 -->
+      <section class="block" id="picks">
+        <h2>精选内容推荐：本周值得先看的 5 条</h2>
+        <p class="h2note">按问题类型挑选，每条对应一个具体排查场景，不重复同一类内容。</p>
+        <div class="grid g2">
+          <div class="card">
+            <h4><a href="/#deep">判断入口是否被替换的三种痕迹</a></h4>
+            <p>证书主体变化、页面加载顺序改变、登录按钮位置偏移，是被替换后最常见的三处差异。</p>
+            <div class="meta"><span class="chip">深度解析</span><span>11-07</span></div>
+          </div>
+          <div class="card">
+            <h4><a href="/#guide">403 与 502 的分开处理顺序</a></h4>
+            <p>403 多为请求头被拦截，502 多为上游节点异常，两者清理缓存的收益完全不同。</p>
+            <div class="meta"><span class="chip">体验指南</span><span>11-06</span></div>
+          </div>
+          <div class="card">
+            <h4><a href="/#latest">11月7日入口状态批量复测记录</a></h4>
+            <p>12 条主线记录逐条复测，其中 3 条从可直连降级为需切换备用，附处理建议。</p>
+            <div class="meta"><span class="chip">最新更新</span><span>11-07</span></div>
+          </div>
+          <div class="card">
+            <h4><a href="/#comments">用户反馈：换设备后仍打不开的两例</a></h4>
+            <p>两位用户在切换浏览器与网络后问题依旧，最终定位到本地 DNS 缓存未刷新。</p>
+            <div class="meta"><span class="chip">用户评论</span><span>11-05</span></div>
+          </div>
+        </div>
+        <h3>按使用场景挑内容</h3>
+        <ul class="tlist">
+          <li><span class="date">场景一</span><span class="t">首次访问，先看<a href="/#guide">体验指南</a>里的四步排查<span>从网络环境、浏览器缓存、DNS 到备用线路逐层排除。</span></span></li>
+          <li><span class="date">场景二</span><span class="t">长期访问，关注<a href="/#verify">校验清单</a>的更新时间<span>清单每次复测后更新日期，日期超过 3 天需重新比对。</span></span></li>
+          <li><span class="date">场景三</span><span class="t">遇到跳转，先读<a href="/#deep">深度解析</a>里的替换痕迹<span>跳转页面与原始页面在版权年份上常有差异。</span></span></li>
+        </ul>
+      </section>
+
+      <!-- 3 最新更新 -->
+      <section class="block" id="latest">
+        <h2>最新更新</h2>
+        <p class="h2note">本栏只记变更，不重复概览中的线路描述。</p>
+        <ul class="tlist">
+          <li><span class="date">11-07</span><span class="t"><a href="/#verify">主线 B 组恢复直连</a><span>20:12 复测返回 200，此前 11月6日 18:40 出现 302 跳转，已恢复为可用备用。</span></span></li>
+          <li><span class="date">11-07</span><span class="t"><a href="/#deep">新增镜像判定三项对照表</a><span>证书主体、备案号、版权年份三项并入深度解析，替代原先的口头判断。</span></span></li>
+          <li><span class="date">11-06</span><span class="t"><a href="/#faq">补充 403 处理问答</a><span>用户询问请求头拦截问题，问答里写明先禁用扩展再复测的步骤。</span></span></li>
+          <li><span class="date">11-05</span><span class="t"><a href="/#channels">频道索引扩充至 10 个</a><span>新增“证书与域名核对”“节点延迟记录”两个频道。</span></span></li>
+          <li><span class="date">11-04</span><span class="t"><a href="/#comments">归档两例 DNS 缓存反馈</a><span>两例均在同网络下复现，清理缓存后恢复，样本已编号保存。</span></span></li>
+          <li><span class="date">11-03</span><span class="t"><a href="/#rank">更新报错码频次榜</a><span>近 7 天 38 个样本中，403 占 14 例，502 占 9 例，302 占 7 例。</span></span></li>
+        </ul>
+      </section>
+
+      <!-- 4 频道索引 -->
+      <section class="block" id="channels">
+        <h2>频道索引</h2>
+        <p class="h2note">按查询目的分组，点击直接跳到对应内容区。</p>
+        <h3>访问与线路</h3>
+        <ul class="idx">
+          <li><a href="/#overview">线路状态概览</a></li>
+          <li><a href="/#verify">入口校验记录</a></li>
+          <li><a href="/#guide">打不开四步排查</a></li>
+          <li><a href="/#deep">入口替换痕迹</a></li>
+          <li><a href="/#news">节点延迟样本</a></li>
+        </ul>
+        <h3>识别与安全</h3>
+        <ul class="idx">
+          <li><a href="/#deep">证书与域名核对</a></li>
+          <li><a href="/#faq">403 请求头拦截</a></li>
+          <li><a href="/#faq">302 跳转判断</a></li>
+          <li><a href="/#comments">本地 DNS 缓存</a></li>
+          <li><a href="/#tags">常见报错码索引</a></li>
+        </ul>
+        <h3>记录与反馈</h3>
+        <ul class="idx">
+          <li><a href="/#rank">报错码频次榜</a></li>
+          <li><a href="/#timeline">校验时间线</a></li>
+          <li><a href="/#comments">用户反馈归档</a></li>
+          <li><a href="/#tags">相关推荐标签</a></li>
+        </ul>
+      </section>
+
+      <!-- 5 深度解析 -->
+      <section class="block" id="deep">
+        <h2>深度解析：入口经常“看起来能用”的三个判断点</h2>
+        <p class="h2note">以下判断可用浏览器开发者工具逐项核对，结论允许被反驳。</p>
+        <div class="article">
+          <h3>一、证书主体与备案信息不一致时，优先怀疑域名被替换</h3>
+          <p>11月6日 18:40 的复测样本里，一条备用线路的证书签发主体从原本的组织名改成了一个泛域名证书，备案号链接指向空白页。同期页面标题未变，但版权年份从 2026 变成 2024。三条痕迹同时出现，基本可以判定该域名已不是原站点。单看页面标题无法识别，因为标题可以原样复制。</p>
+          <p>可反驳之处在于：证书更换本身也可能是正常运维。因此判断标准应当设成“三项同时变化”，只变一项时记为观察，不记为替换。</p>
+          <div class="pull">
+            <strong>可核对结论：</strong>把证书主体、备案号、版权年份抄进一张三列表，任一项变化记 1 分，累计 2 分以上再切换到主线入口。11月7日按此规则复测 12 条记录，判为可疑的 3 条与人工复核结果一致。
+          </div>
+
+          <h3>二、302 跳转比 403 更值得警惕</h3>
+          <p>把 11月1日至7日的 38 个报错样本按状态码分组，得到下面的分布。403 多数发生在请求头被拦截时，页面还能加载出框架；302 则意味着请求被引导到另一个地址，最终落到哪个页面不可控。</p>
+          <table class="cmp">
+            <thead><tr><th>状态码</th><th class="num">样本数</th><th>典型触发条件</th><th>首步处理</th></tr></thead>
+            <tbody>
+              <tr><td>403</td><td class="num">14</td><td>浏览器扩展改写请求头</td><td>禁用扩展后复测</td></tr>
+              <tr><td>502</td><td class="num">9</td><td>上游节点异常</td><td>等 10 分钟后换节点</td></tr>
+              <tr><td>302</td><td class="num">7</td><td>域名解析被引导</td><td>核对证书主体</td></tr>
+              <tr><td>超时</td><td class="num">5</td><td>本地 DNS 缓存过期</td><td>刷新 DNS 再访问</td></tr>
+              <tr><td>其他</td><td class="num">3</td><td>证书过期、端口封闭</td><td>检查系统时间</td></tr>
+            </tbody>
+          </table>
+          <p>样本量只有 38，不能外推为普遍规律。但 7 例 302 中有 5 例同时伴随版权年份变化，这个重合度足以让 302 成为优先排查项。</p>
+
+          <h3>三、延迟数据要按时间段分开看，混在一起会误判</h3>
+          <p>11月7日 20:00 至 21:00 的 60 次请求里，华东节点中位延迟 142ms，华南 168ms。把这两个数字合成“平均 155ms”会掩盖一个事实：20:30 至 20:45 的 15 分钟内，华南节点延迟升到 310ms，其余时间稳定在 120ms 左右。也就是说，问题出现在特定时段，而不是特定线路。</p>
+          <dl class="facts">
+            <dt>采样口径</dt>
+            <dd>同一浏览器、同一网络、每分钟 4 次请求，共 60 次。</dd>
+            <dt>异常时段</dt>
+            <dd>20:30–20:45，华南节点延迟中位数 310ms，峰值 480ms。</dd>
+            <dt>同期对照</dt>
+            <dd>同 15 分钟内华东节点中位数 138ms，无明显波动。</dd>
+            <dt>处理建议</dt>
+            <dd>该时段优先走华东节点，20:45 后再回切。</dd>
+          </dl>
+          <p>如果只记录一个平均延迟，换节点就成了盲试。把时间维度加进去，才能解释“为什么同一线路在不同时间表现完全不同”。</p>
+        </div>
+      </section>
+
+      <!-- 6 体验指南 -->
+      <section class="block" id="guide">
+        <h2>体验指南：打不开时的四步处理顺序</h2>
+        <p class="h2note">每一步都有可观察的结果，前一步没有结论不要跳到下一步。</p>
+        <ol class="steps">
+          <li><b>确认是单站问题还是整网问题。</b>同时打开一个常用站点，若能正常加载，说明网络出口正常，问题在目标入口；若同样打不开，先检查本地网络连接状态。</li>
+          <li><b>清理浏览器缓存与 DNS 缓存。</b>Chrome 在地址栏输入 chrome://net-internals/#dns 清理主机缓存；Windows 可用 ipconfig /flushdns，macOS 用 sudo killall -HUP mDNSResponder。</li>
+          <li><b>禁用扩展后复测。</b>11月1日至7日的 14 例 403 中，有 11 例在禁用广告拦截类扩展后恢复，这一步的收益最高，应放在更换线路之前。</li>
+          <li><b>切换备用线路。</b>前四步都无效时再切线路，切换后记录返回状态码与时间，便于对照校验清单中的历史记录。</li>
+        </ol>
+        <h3>观察项对照</h3>
+        <table class="cmp">
+          <thead><tr><th>现象</th><th>更可能的原因</th><th>先做哪一步</th></tr></thead>
+          <tbody>
+            <tr><td>页面白屏，控制台报 CORS</td><td>请求头被扩展改写</td><td>禁用扩展</td></tr>
+            <tr><td>页面加载一半停住</td><td>上游节点超时</td><td>换节点并等待 10 分钟</td></tr>
+            <tr><td>自动跳到别的页面</td><td>域名解析被引导</td><td>核对证书主体</td></tr>
+            <tr><td>提示证书不受信任</td><td>系统时间错误或证书过期</td><td>校准系统时间</td></tr>
+          </tbody>
+        </table>
+        <h3>记录建议</h3>
+        <p>每次排查留一行记录：日期、状态码、当时所用网络、是否禁用扩展。连续记一周就能看出规律。11月4日归档的两例反馈，正是靠这行记录才发现问题只在特定网络下出现。</p>
+      </section>
+
+      <!-- 7 校验记录（判断拆成可核对结构） -->
+      <section class="block" id="verify">
+        <h2>入口校验记录</h2>
+        <p class="h2note">按四项口径逐条记录，可对照你自己的访问结果。</p>
+        <table class="cmp">
+          <thead><tr><th>记录</th><th>校验时间</th><th>状态码</th><th>是否跳转</th><th>适用网络</th></tr></thead>
+          <tbody>
+            <tr><td>主线 A-1</td><td>11-07 21:30</td><td>200</td><td>否</td><td>固定宽带</td></tr>
+            <tr><td>主线 A-2</td><td>11-07 21:30</td><td>200</td><td>否</td><td>固定宽带</td></tr>
+            <tr><td>主线 B-1</td><td>11-07 20:12</td><td>200</td><td>否</td><td>移动网络</td></tr>
+            <tr><td>备用 C-1</td><td>11-06 18:40</td><td>302</td><td>是</td><td>移动网络</td></tr>
+            <tr><td>备用 C-2</td><td>11-07 19:05</td><td>200</td><td>否</td><td>固定宽带</td></tr>
+          </tbody>
+        </table>
+        <p>这张表的价值在于可对照：你在同一时间、同一网络下访问，若结果与表中不同，就应先记录差异，而不是直接判断线路失效。11月6日 C-1 的 302 在次日恢复，说明单次结果不足以定论。</p>
+      </section>
+
+      <!-- 8 FAQ -->
+      <section class="block" id="faq">
+        <h2>常见问题</h2>
+        <p class="h2note">问题按实际提问频率排列，答案只讲可执行的部分。</p>
+        <details>
+          <summary>入口打开后自动跳到另一个页面，是正常的吗？</summary>
+          <div class="ans">自动跳转通常意味着解析被引导到其他地址。先看落地页的版权年份和证书签发主体，与校验清单里记录的原值不一致时，不要在该页输入账号信息，改走主线入口。</div>
+        </details>
+        <details>
+          <summary>同一网络下昨天能开，今天显示 403，怎么处理？</summary>
+          <div class="ans">403 多与请求头有关。先禁用广告拦截类扩展复测，仍为 403 再清理浏览器缓存。11月1日至7日的 14 例 403 中，11 例在禁用扩展后恢复，清理缓存只对其中 2 例有效。</div>
+        </details>
+        <details>
+          <summary>更换浏览器后依然打不开，问题可能出在哪里？</summary>
+          <div class="ans">浏览器更换不影响 DNS 缓存，问题通常留在系统层。刷新 DNS 后再试；若结果不变，记录状态码并与校验清单比对，确认是否落在 20:30 至 20:45 的延迟高峰时段。</div>
+        </details>
+        <details>
+          <summary>备用线路要不要一直挂着？</summary>
+          <div class="ans">不建议长期使用。备用线路在 11月6日出现过一次 302，稳定性弱于主线。把它作为第三顺位，仅在主线连续两次失败时启用，并在问题解决后切回。</div>
+        </details>
+        <details>
+          <summary>页面显示证书不受信任，还能继续访问吗？</summary>
+          <div class="ans">先校准系统时间。系统时间偏差超过 10 分钟，常会导致证书校验失败。校准后仍报警，说明证书本身有问题，此时应停止访问并核对签发主体。</div>
+        </details>
+        <details>
+          <summary>延迟高的时候换线路有用吗？</summary>
+          <div class="ans">要看时段。11月7日 20:30 至 20:45，华南节点延迟升到 310ms 而华东稳定在 138ms，这段时间换节点有效；其余时段两条线路差异在 30ms 以内，换与不换区别不大。</div>
+        </details>
+        <details>
+          <summary>怎么确认自己访问的是原站点而不是镜像？</summary>
+          <div class="ans">对照三项：证书签发主体、备案号链接、页面版权年份。三项与原站点一致才可视为同一站点；只改域名的镜像通常会在其中一项露出差异。</div>
+        </details>
+      </section>
+
+      <!-- 9 用户评论 -->
+      <section class="block" id="comments">
+        <h2>用户评论</h2>
+        <p class="h2note">保留原始语气，含中性评价与负面反馈。</p>
+        <ul class="cmt">
+          <li>
+            <div class="who"><span class="av" aria-hidden="true">陈</span><b>陈默</b><span>11-07 21:12</span><span class="chip">针对 B-1</span></div>
+            <p>B-1 恢复后试了五次，四次正常，一次卡在加载一半。翻了下校验记录，正好落在 20:30 到 20:45 那个时段，换华东节点就没事了。这个时段标注挺有用。</p>
+          </li>
+          <li>
+            <div class="who"><span class="av" aria-hidden="true">周</span><b>周予安</b><span>11-07 19:48</span></div>
+            <p>按四步顺序走了一遍，第二步清 DNS 就解决了。之前一直在换浏览器，白折腾半小时。建议把清缓存那步放得更靠前。</p>
+          </li>
+          <li>
+            <div class="who"><span class="av" aria-hidden="true">林</span><b>林一舟</b><span>11-06 22:03</span><span class="chip warn">负面</span></div>
+            <p>C-1 那天跳转到的页面，版权年份写 2024，与原站点对不上。校验表里记的 302 和我遇到的情况一致，但清单里只写“需手动切换”，没说跳转可能落到别处，这点写得不够直白。</p>
+          </li>
+          <li>
+            <div class="who"><span class="av" aria-hidden="true">吴</span><b>吴桐</b><span>11-06 16:20</span></div>
+            <p>403 那题我碰上了。禁用扩展之后确实好了，但具体是哪个扩展没说清——我这边是某个脚本管理器，和广告拦截无关。建议把“扩展”写具体些。</p>
+          </li>
+          <li>
+            <div class="who"><span class="av" aria-hidden="true">赵</span><b>赵屿</b><span>11-05 10:31</span><span class="chip">中性</span></div>
+            <p>延迟数据看着挺细，可我这边实测华南 20:40 只有 260ms 左右，和记录里的 310ms 差不少。样本量 60 次是不是偏少，值得再采一轮。</p>
+          </li>
+          <li>
+            <div class="who"><span class="av" aria-hidden="true">何</span><b>何知微</b><span>11-04 23:55</span><span class="chip">针对镜像判定</span></div>
+            <p>三项对照法我用了一次，证书主体和备案号都一致、版权年份差一年，按规则记 1 分不判可疑。这个阈值定得合理，不然稍微改版就被误判。</p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 10 相关资讯 -->
+      <section class="block" id="news">
+        <h2>相关资讯</h2>
+        <p class="h2note">只记与访问相关的外部变化与站内记录，不做推测性转述。</p>
+        <div class="grid g2">
+          <div class="card">
+            <h4>DNS 刷新命令在三个系统上的差异</h4>
+            <p>Windows 用 ipconfig /flushdns，macOS 用 sudo killall -HUP mDNSResponder，Linux 视发行版而定。命令写错不会报错，但缓存不会清。</p>
+            <div class="meta"><span>11-07</span><span class="chip plain">操作记录</span></div>
+          </div>
+          <div class="card">
+            <h4>系统时间偏差 10 分钟引发的证书报错</h4>
+            <p>11月5日一位用户报证书不受信任，实际是系统时间慢了 23 分钟。校准后恢复正常，与证书本身无关。</p>
+            <div class="meta"><span>11-05</span><span class="chip">已核实</span></div>
+          </div>
+          <div class="card">
+            <h4>广告拦截扩展改写请求头的两种方式</h4>
+            <p>一类直接删除 Referer 字段，一类替换 User-Agent。前者更容易触发 403，后者常表现为页面元素缺失。</p>
+            <div class="meta"><span>11-06</span><span class="chip plain">现象归纳</span></div>
+          </div>
+          <div class="card">
+            <h4>线上反馈：20:30 时段延迟升高的两种解释</h4>
+            <p>一种说法归因于节点负载，另一种认为是本地路由切换。目前只有 60 次采样，尚不足以支持其中任何一种，列为待验证。</p>
+            <div class="meta"><span>11-07</span><span class="chip warn">待验证</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 报错码频次榜 -->
+      <section class="block" id="rank">
+        <h2>报错码频次榜（近 7 天）</h2>
+        <p class="h2note">样本来源为站内反馈与复测记录，共 38 例。</p>
+        <ol class="tlist">
+          <li><span class="date">第 1</span><span class="t">403 请求头拦截 · 14 例<span>其中 11 例禁用扩展后恢复，2 例清缓存后恢复，1 例未复现。</span></span></li>
+          <li><span class="date">第 2</span><span class="t">502 上游节点异常 · 9 例<span>7 例在 10 分钟内自愈，2 例需切换节点。</span></span></li>
+          <li><span class="date">第 3</span><span class="t">302 域名解析引导 · 7 例<span>5 例伴随版权年份变化，需核对证书主体。</span></span></li>
+          <li><span class="date">第 4</span><span class="t">连接超时 · 5 例<span>全部在刷新 DNS 后恢复，未换线路。</span></span></li>
+          <li><span class="date">第 5</span><span class="t">证书过期与端口封闭 · 3 例<span>1 例为系统时间错误，2 例停止访问。</span></span></li>
+        </ol>
+      </section>
+
+      <!-- 12 校验时间线 -->
+      <section class="block" id="timeline">
+        <h2>校验时间线</h2>
+        <p class="h2note">只列有状态变化的时间点。</p>
+        <ul class="tl">
+          <li>
+            <b>11月3日 09:20　首轮校验</b>
+            <span>12 条主线记录全部可直连</span>
+            <p>当次未记录延迟，仅记状态码，作为基准值。</p>
+          </li>
+          <li>
+            <b>11月5日 14:10　补充采样</b>
+            <span>新增节点延迟记录频道</span>
+            <p>华东 142ms、华南 168ms，采样 60 次，首次发现时段波动。</p>
+          </li>
+          <li>
+            <b>11月6日 18:40　异常出现</b>
+            <span>备用 C-1 返回 302</span>
+            <p>落地页版权年份为 2024，备案号链接空白，记为可疑。</p>
+          </li>
+          <li>
+            <b>11月7日 19:05　复测恢复</b>
+            <span>C-2 返回 200，无跳转</span>
+            <p>502 与证书问题未同步出现，判定为单线路波动。</p>
+          </li>
+          <li>
+            <b>11月7日 21:30　第四轮校验</b>
+            <span>主线 9 条可直连，3 条需切换</span>
+            <p>3 条均为延迟升高而非状态码异常，已标注时段建议。</p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 13 相关推荐标签 -->
+      <section class="block" id="tags">
+        <h2>相关推荐</h2>
+        <p class="h2note">按具体问题归类，点击跳到对应板块。</p>
+        <ul class="tags">
+          <li><a href="/#overview">入口线路状态</a></li>
+          <li><a href="/#verify">入口校验清单</a></li>
+          <li><a href="/#faq">403 请求头拦截</a></li>
+          <li><a href="/#faq">302 跳转判断</a></li>
+          <li><a href="/#guide">DNS 缓存刷新</a></li>
+          <li><a href="/#deep">证书与域名核对</a></li>
+          <li><a href="/#deep">镜像地址判定</a></li>
+          <li><a href="/#news">节点延迟样本</a></li>
+          <li><a href="/#comments">本地网络反馈</a></li>
+          <li><a href="/#rank">报错码频次</a></li>
+          <li><a href="/#timeline">校验时间线</a></li>
+          <li><a href="/#guide">系统时间校准</a></li>
+        </ul>
+      </section>
+
+      <!-- 14 创作者证言 -->
+      <section class="block" id="voice">
+        <h2>记录者说明</h2>
+        <figure class="quote">
+          <blockquote>“我记的不是‘能不能用’，而是‘在什么条件下能用’。这两件事差很远。11月6日那条 302 如果只写一句不可用，第二天恢复后就说不清了。”</blockquote>
+          <figcaption>—— 入口校验记录维护者，负责 11 月 3 日至 7 日的四轮复测</figcaption>
+        </figure>
+        <p>四轮复测里，最有价值的一次是 11月7日 20:30 的补充采样。那天华南节点延迟突然升到 310ms，与状态码无关，单看 200 根本发现不了。记录方式后来改成“状态码 + 时段”，代价是每条记录多花两分钟。</p>
+        <p>样本量始终是个短板。38 例报错码、60 次延迟采样，都只能说“在这批数据里如此”，不足以下全局结论。读者若在同样条件下得到不同结果，那个差异本身比结论更值得记下来。</p>
+      </section>
+
+    </main>
+
+    <!-- 侧栏 -->
+    <aside class="side" aria-label="侧栏">
+      <section class="block">
+        <h2>频道导航</h2>
+        <ul class="snav" id="snav">
+          <li><a href="/#overview">线路概览</a></li>
+          <li><a href="/#picks">精选推荐</a></li>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#channels">频道索引</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#verify">校验记录</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#comments">用户评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#rank">报错码榜</a></li>
+          <li><a href="/#timeline">校验时间线</a></li>
+        </ul>
+      </section>
+      <section class="block">
+        <h3>本期关键数字</h3>
+        <div class="kv"><span>主线记录</span><b>12 条</b></div>
+        <div class="kv"><span>可直连</span><b>9 条</b></div>
+        <div class="kv"><span>需切换备用</span><b>3 条</b></div>
+        <div class="kv"><span>报错样本</span><b>38 例</b></div>
+        <div class="kv"><span>延迟采样</span><b>60 次</b></div>
+        <div class="kv"><span>最近校验</span><b>11-07 21:30</b></div>
+      </section>
+      <section class="block">
+        <h3>反馈提示</h3>
+        <p class="mini">遇到与清单不一致的结果，记下<b>日期、状态码、网络类型、是否禁用扩展</b>四项，便于比对。样本越多，时段建议越准。</p>
+        <p class="mini">11月4日归档的两例反馈，均来自这四项记录完整的读者。</p>
+      </section>
+    </aside>
+  </div>
+</div>
+
+<!-- 页尾 -->
+<footer class="sitefoot">
+  <div class="foot-in">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">
+          <svg viewBox="0 0 64 64" role="img" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#17568a"/>
+            <path d="M17 21h30M17 32h21M17 43h30" stroke="#8fe6d9" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="48" cy="32" r="6.5" fill="#f5b642"/>
+          </svg>
+          <b>51hlw入口</b>
+        </div>
+        <p class="foot-desc">记录访问路径的状态码、时段与适用网络，用可对照的表格替代口头结论。</p>
+      </div>
+      <div>
+        <h3>访问排查</h3>
+        <ul>
+          <li><a href="/#overview">线路概览</a></li>
+          <li><a href="/#verify">校验记录</a></li>
+          <li><a href="/#guide">四步排查</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>判断方法</h3>
+        <ul>
+          <li><a href="/#deep">入口替换痕迹</a></li>
+          <li><a href="/#deep">证书与域名核对</a></li>
+          <li><a href="/#news">节点延迟样本</a></li>
+          <li><a href="/#rank">报错码频次榜</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>记录与反馈</h3>
+        <ul>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#timeline">校验时间线</a></li>
+          <li><a href="/#comments">用户评论</a></li>
+          <li><a href="/#tags">相关推荐</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <span>页面更新：2026-11-08 · 正文可核对更新项：11月7日 21:30 第四轮校验、C-1 恢复记录、报错码频次榜数据。</span>
+      <span>示例数据说明：文中线路、状态码、延迟与评论均为演示用示例，不构成真实地址或服务承诺。</span>
+      <span>© 2026 51hlw入口 记录组</span>
+    </div>
+  </div>
+</footer>
+
+<button class="totop" id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  var menuBtn = document.getElementById('menuBtn');
+  var headNav = document.getElementById('headNav');
+  if(menuBtn && headNav){
+    menuBtn.addEventListener('click', function(){
+      var open = headNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    headNav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A' && window.matchMedia('(max-width:660px)').matches){
+        headNav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  // 本地查找
+  var form = document.getElementById('searchForm');
+  var q = document.getElementById('q');
+  var msg = document.getElementById('searchMsg');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+
+  function norm(s){ return (s || '').toLowerCase().replace(/\s+/g,''); }
+
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var key = norm(q.value);
+      if(!key){
+        msg.textContent = '请输入要查找的关键词，例如 403、302、延迟、证书。';
+        msg.classList.add('on');
+        return;
+      }
+      var hit = null, hits = [];
+      sections.forEach(function(sec){
+        if(norm(sec.textContent).indexOf(key) !== -1){ hits.push(sec); }
+      });
+      if(hits.length){
+        hit = hits[0];
+        msg.textContent = '找到 ' + hits.length + ' 个相关板块，已跳到「' + (hit.querySelector('h2') ? hit.querySelector('h2').textContent : hit.id) + '」。';
+        msg.classList.add('on');
+        hit.scrollIntoView({behavior:'smooth', block:'start'});
+      }else{
+        msg.textContent = '未找到与“' + q.value + '”相关的内容。可换个词试试：403、302、DNS、证书、延迟、镜像。';
+        msg.classList.add('on');
+      }
+    });
+  }
+
+  // 侧栏高亮
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('#snav a'));
+  if('IntersectionObserver' in window && navLinks.length){
+    var map = {};
+    navLinks.forEach(function(a){
+      var id = a.getAttribute('href').replace('/#','');
+      map[id] = a;
+    });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          navLinks.forEach(function(a){ a.classList.remove('active'); });
+          var link = map[en.target.id];
+          if(link){ link.classList.add('active'); }
+        }
+      });
+    }, {rootMargin:'-120px 0px -65% 0px', threshold:0});
+    sections.forEach(function(s){ io.observe(s); });
+  }
+
+  // 回到顶部
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 520){ toTop.classList.add('on'); }
+    else{ toTop.classList.remove('on'); }
+  }, {passive:true});
+  if(toTop){
+    toTop.addEventListener('click', function(){
+      var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+      window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
+    });
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "51hlw入口",
+  "description": "记录资源站访问路径、备用线路状态码、时段延迟与打不开时的排查顺序。",
+  "inLanguage": "zh-CN",
+  "dateModified": "2026-11-08"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "入口打开后自动跳到另一个页面，是正常的吗？",
+      "acceptedAnswer": {"@type": "Answer", "text": "自动跳转通常意味着解析被引导到其他地址。先看落地页的版权年份和证书签发主体，与校验清单里记录的原值不一致时，不要在该页输入账号信息，改走主线入口。"}
+    },
+    {
+      "@type": "Question",
+      "name": "同一网络下昨天能开，今天显示 403，怎么处理？",
+      "acceptedAnswer": {"@type": "Answer", "text": "403 多与请求头有关。先禁用广告拦截类扩展复测，仍为 403 再清理浏览器缓存。11月1日至7日的 14 例 403 中，11 例在禁用扩展后恢复，清理缓存只对其中 2 例有效。"}
+    },
+    {
+      "@type": "Question",
+      "name": "更换浏览器后依然打不开，问题可能出在哪里？",
+      "acceptedAnswer": {"@type": "Answer", "text": "浏览器更换不影响 DNS 缓存，问题通常留在系统层。刷新 DNS 后再试；若结果不变，记录状态码并与校验清单比对，确认是否落在 20:30 至 20:45 的延迟高峰时段。"}
+    },
+    {
+      "@type": "Question",
+      "name": "备用线路要不要一直挂着？",
+      "acceptedAnswer": {"@type": "Answer", "text": "不建议长期使用。备用线路在 11月6日出现过一次 302，稳定性弱于主线。把它作为第三顺位，仅在主线连续两次失败时启用，并在问题解决后切回。"}
+    },
+    {
+      "@type": "Question",
+      "name": "页面显示证书不受信任，还能继续访问吗？",
+      "acceptedAnswer": {"@type": "Answer", "text": "先校准系统时间。系统时间偏差超过 10 分钟，常会导致证书校验失败。校准后仍报警，说明证书本身有问题，此时应停止访问并核对签发主体。"}
+    },
+    {
+      "@type": "Question",
+      "name": "延迟高的时候换线路有用吗？",
+      "acceptedAnswer": {"@type": "Answer", "text": "要看时段。11月7日 20:30 至 20:45，华南节点延迟升到 310ms 而华东稳定在 138ms，这段时间换节点有效；其余时段两条线路差异在 30ms 以内，换与不换区别不大。"}
+    },
+    {
+      "@type": "Question",
+      "name": "怎么确认自己访问的是原站点而不是镜像？",
+      "acceptedAnswer": {"@type": "Answer", "text": "对照三项：证书签发主体、备案号链接、页面版权年份。三项与原站点一致才可视为同一站点；只改域名的镜像通常会在其中一项露出差异。"}
+    }
+  ]
+}
+</script>
+
+</body>
+          </html>
