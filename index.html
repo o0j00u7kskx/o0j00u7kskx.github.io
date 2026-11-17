@@ -1,0 +1,1291 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>每日大赛每日爆料360-赛事爆料与赛果追踪</title>
+<meta name="description" content="每日大赛每日爆料360聚合赛事赛程、赛果与选手动态，按赛道拆解赛制与评分口径差异，整理现场看点、答疑与榜单，提供可核对的参赛与观赛体验记录。">
+<meta name="keywords" content="每日大赛每日爆料360">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d3b6e'/%3E%3Cpath d='M14 44 L26 18 L34 34 L40 24 L52 44 Z' fill='%23f5a524'/%3E%3Ccircle cx='46' cy='18' r='5' fill='%23e9eef7'/%3E%3C/svg%3E">
+<style>
+:root{
+  --navy:#1d3b6e;
+  --navy-deep:#142a52;
+  --navy-soft:#e9eef7;
+  --amber:#f5a524;
+  --amber-soft:#fdf1da;
+  --ink:#1b1f27;
+  --ink-2:#3d4553;
+  --ink-3:#68717f;
+  --line:#d9dfe9;
+  --line-soft:#eaeef5;
+  --bg:#f6f7fa;
+  --white:#ffffff;
+  --red:#c0392b;
+  --green:#2b7a4b;
+  --radius-s:6px;
+  --radius-m:10px;
+  --radius-l:16px;
+  --shadow-s:0 1px 2px rgba(20,42,82,.06),0 2px 8px rgba(20,42,82,.05);
+  --shadow-m:0 4px 16px rgba(20,42,82,.10);
+  --fs-h1:clamp(1.7rem,3.6vw,2.5rem);
+  --fs-h2:clamp(1.25rem,2.2vw,1.55rem);
+  --fs-h3:1.08rem;
+  --fs-body:1rem;
+  --fs-sm:.875rem;
+  --fs-xs:.78rem;
+  --sp-1:.35rem;
+  --sp-2:.6rem;
+  --sp-3:1rem;
+  --sp-4:1.5rem;
+  --sp-5:2.25rem;
+  --sp-6:3.25rem;
+  --announce-h:38px;
+  --header-h:64px;
+  --stick:calc(var(--announce-h) + var(--header-h));
+  --maxw:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,sans-serif;
+  font-size:var(--fs-body);
+  line-height:1.75;
+  color:var(--ink);
+  background:var(--bg);
+  -webkit-text-size-adjust:100%;
+}
+img{max-width:100%;display:block}
+a{color:var(--navy);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700;letter-spacing:.01em}
+p{margin:0 0 var(--sp-3)}
+p:last-child{margin-bottom:0}
+ul,ol{margin:0 0 var(--sp-3);padding-left:1.25rem}
+ul:last-child,ol:last-child{margin-bottom:0}
+li{margin:.2rem 0}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ===== 吸顶公告条 ===== */
+.announce{
+  position:sticky;top:0;z-index:60;
+  height:var(--announce-h);
+  background:linear-gradient(90deg,var(--navy-deep),var(--navy));
+  color:#dfe7f5;
+  display:flex;align-items:center;
+  font-size:var(--fs-xs);
+}
+.announce .wrap{
+  display:flex;align-items:center;gap:.6rem;
+  width:100%;max-width:var(--maxw);margin:0 auto;padding:0 var(--sp-3);
+  overflow:hidden;
+}
+.announce .tag{
+  flex:none;background:var(--amber);color:#20160a;
+  font-weight:700;padding:.05rem .45rem;border-radius:4px;
+}
+.announce .txt{
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.announce a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+
+/* ===== 吸顶页头 ===== */
+.site-header{
+  position:sticky;top:var(--announce-h);z-index:55;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+  height:var(--header-h);
+}
+.header-inner{
+  max-width:var(--maxw);margin:0 auto;padding:0 var(--sp-3);
+  height:100%;display:flex;align-items:center;gap:var(--sp-3);
+}
+.brand{display:flex;align-items:center;gap:.5rem;flex:none}
+.brand svg{width:34px;height:34px;flex:none}
+.brand-name{
+  font-weight:800;font-size:1.02rem;color:var(--navy-deep);letter-spacing:.02em;
+  line-height:1.2;
+}
+.main-nav{margin-left:var(--sp-3);flex:1;min-width:0}
+.main-nav ul{
+  display:flex;gap:.15rem;list-style:none;margin:0;padding:0;
+  overflow-x:auto;scrollbar-width:none;
+}
+.main-nav ul::-webkit-scrollbar{display:none}
+.main-nav a{
+  display:block;padding:.45rem .6rem;white-space:nowrap;
+  font-size:var(--fs-sm);color:var(--ink-2);border-radius:var(--radius-s);
+  transition:background .15s,color .15s;
+}
+.main-nav a:hover{background:var(--navy-soft);color:var(--navy-deep);text-decoration:none}
+.header-tools{display:flex;align-items:center;gap:.5rem;flex:none}
+.search-box{position:relative;display:flex;align-items:center}
+.search-box input{
+  width:180px;max-width:42vw;
+  padding:.4rem .6rem .4rem 1.9rem;
+  border:1px solid var(--line);border-radius:999px;
+  font:inherit;font-size:var(--fs-sm);color:var(--ink);
+  background:var(--white);
+}
+.search-box input:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(29,59,110,.15)}
+.search-box .ico{
+  position:absolute;left:.6rem;width:15px;height:15px;color:var(--ink-3);pointer-events:none;
+}
+.search-feedback{
+  position:absolute;top:calc(100% + 6px);left:0;right:0;
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius-m);
+  box-shadow:var(--shadow-m);padding:.5rem .7rem;font-size:var(--fs-xs);color:var(--ink-2);
+  display:none;z-index:70;
+}
+.search-feedback.on{display:block}
+.menu-btn{
+  display:none;align-items:center;justify-content:center;
+  width:40px;height:40px;border:1px solid var(--line);border-radius:var(--radius-s);
+  background:var(--white);color:var(--navy-deep);
+}
+.menu-btn svg{width:20px;height:20px}
+
+/* ===== 首屏 ===== */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#12264a 0%,#1d3b6e 46%,#274e8d 100%);
+  color:#eaeff9;
+}
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:var(--maxw);margin:0 auto;padding:var(--sp-5) var(--sp-3) var(--sp-6);
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:var(--sp-4);
+  align-items:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-size:var(--fs-xs);font-weight:700;letter-spacing:.08em;
+  background:rgba(245,165,36,.16);color:#ffd08a;
+  border:1px solid rgba(245,165,36,.42);
+  padding:.22rem .65rem;border-radius:999px;margin-bottom:var(--sp-3);
+}
+.hero h1{
+  font-size:var(--fs-h1);color:#fff;letter-spacing:.01em;margin-bottom:var(--sp-3);
+}
+.hero-lead{
+  color:#c7d5ea;max-width:38em;margin-bottom:var(--sp-4);
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:var(--sp-4)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+  padding:.6rem 1.15rem;border-radius:999px;font-size:var(--fs-sm);font-weight:600;
+  border:1px solid transparent;transition:transform .15s,box-shadow .15s,background .15s;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-primary{background:var(--amber);color:#221806}
+.btn-primary:hover{box-shadow:0 6px 18px rgba(245,165,36,.35)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#e8eefb;border-color:rgba(255,255,255,.3)}
+.btn-ghost:hover{background:rgba(255,255,255,.16)}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.6rem;
+  border-top:1px solid rgba(255,255,255,.16);padding-top:var(--sp-3);max-width:34em;
+}
+.hero-stats dt{font-size:var(--fs-xs);color:#9fb3d3;margin-bottom:.1rem}
+.hero-stats dd{margin:0;font-size:1.16rem;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.hero-stats dd span{font-size:var(--fs-xs);font-weight:500;color:#9fb3d3;margin-left:.15rem}
+
+/* 原创视觉：赛道雷达构图 */
+.hero-visual{position:relative;aspect-ratio:1/1;max-width:420px;margin-left:auto;width:100%}
+.hero-visual svg{width:100%;height:100%;display:block}
+
+/* ===== 布局 ===== */
+.layout{
+  max-width:var(--maxw);margin:0 auto;padding:var(--sp-5) var(--sp-3) var(--sp-6);
+  display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--sp-4);
+  align-items:start;
+}
+main{min-width:0}
+aside{min-width:0}
+section[id]{scroll-margin-top:calc(var(--stick) + 14px)}
+
+/* ===== 通用板块 ===== */
+.block{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius-l);
+  padding:var(--sp-4);margin-bottom:var(--sp-4);box-shadow:var(--shadow-s);
+}
+.block:last-child{margin-bottom:0}
+.block-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1rem;margin-bottom:var(--sp-3)}
+.block-head h2{font-size:var(--fs-h2);color:var(--navy-deep)}
+.block-head p{margin:0;font-size:var(--fs-sm);color:var(--ink-3)}
+.kicker{
+  font-size:var(--fs-xs);font-weight:700;letter-spacing:.1em;color:var(--amber);
+  text-transform:uppercase;display:block;margin-bottom:.2rem;
+}
+.sub-h{font-size:var(--fs-h3);color:var(--navy-deep);margin:var(--sp-4) 0 var(--sp-2)}
+.sub-h:first-child{margin-top:0}
+
+/* 概览：非对称组合 */
+.overview-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:var(--sp-3)}
+.overview-main{border-right:1px solid var(--line-soft);padding-right:var(--sp-3)}
+.overview-side{display:grid;gap:var(--sp-2)}
+.mini-stat{
+  background:var(--navy-soft);border-radius:var(--radius-m);padding:.65rem .8rem;
+}
+.mini-stat strong{display:block;font-size:1.28rem;color:var(--navy-deep);font-variant-numeric:tabular-nums;line-height:1.2}
+.mini-stat span{font-size:var(--fs-xs);color:var(--ink-3)}
+
+/* 网格卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-3)}
+.card{
+  border:1px solid var(--line);border-radius:var(--radius-m);overflow:hidden;
+  display:flex;flex-direction:column;background:var(--white);
+  transition:transform .18s,box-shadow .18s,border-color .18s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-m);border-color:#bccbe3}
+.card figure{margin:0;position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--navy-soft)}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.card:hover img{transform:scale(1.03)}
+.card-body{padding:.8rem .9rem 1rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.card-tag{
+  align-self:flex-start;font-size:var(--fs-xs);font-weight:700;
+  color:var(--navy);background:var(--navy-soft);
+  padding:.1rem .45rem;border-radius:4px;
+}
+.card h3{font-size:.99rem;color:var(--ink);line-height:1.45}
+.card h3 a{color:inherit}
+.card h3 a:hover{color:var(--navy);text-decoration:none}
+.card-meta{font-size:var(--fs-xs);color:var(--ink-3);margin-top:auto;display:flex;flex-wrap:wrap;gap:.4rem}
+.card-meta .dot{color:var(--line)}
+
+/* 紧凑列表 */
+.tight-list{list-style:none;padding:0;margin:0;border-top:1px solid var(--line-soft)}
+.tight-list li{
+  display:grid;grid-template-columns:auto 1fr auto;gap:.7rem;align-items:baseline;
+  padding:.62rem 0;border-bottom:1px solid var(--line-soft);margin:0;
+}
+.tight-list .t{
+  font-size:var(--fs-xs);color:var(--navy);font-variant-numeric:tabular-nums;
+  background:var(--navy-soft);padding:.05rem .4rem;border-radius:4px;white-space:nowrap;
+}
+.tight-list .link{color:var(--ink);font-size:.95rem}
+.tight-list .link:hover{color:var(--navy)}
+.tight-list .src{font-size:var(--fs-xs);color:var(--ink-3);white-space:nowrap}
+
+/* 标签索引 */
+.tag-index{display:flex;flex-wrap:wrap;gap:.5rem}
+.tag-index a{
+  font-size:var(--fs-sm);color:var(--ink-2);
+  background:var(--bg);border:1px solid var(--line);
+  padding:.32rem .7rem;border-radius:999px;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.tag-index a:hover{background:var(--navy);color:#fff;border-color:var(--navy);text-decoration:none}
+.tag-index a .n{font-size:var(--fs-xs);color:var(--ink-3);margin-left:.3rem}
+.tag-index a:hover .n{color:#c7d5ea}
+
+/* 深度解析 分栏正文 + 引语 */
+.analysis-body{column-count:2;column-gap:var(--sp-4);column-rule:1px solid var(--line-soft)}
+.analysis-body h3{break-after:avoid}
+.analysis-body p{margin-bottom:var(--sp-3)}
+.analysis-body .pull{
+  break-inside:avoid;background:var(--amber-soft);border-left:4px solid var(--amber);
+  padding:.7rem .9rem;border-radius:0 var(--radius-s) var(--radius-s) 0;
+  font-size:.95rem;color:#4a3508;margin:0 0 var(--sp-3);
+}
+.analysis-body .checklist{
+  break-inside:avoid;border:1px dashed var(--line);border-radius:var(--radius-m);
+  padding:.7rem .9rem;margin:0 0 var(--sp-3);background:#fbfcfe;
+}
+.analysis-body .checklist strong{display:block;font-size:.9rem;color:var(--navy-deep);margin-bottom:.25rem}
+.analysis-body .checklist ul{margin:0;padding-left:1.1rem;font-size:.9rem}
+
+/* 对照面板 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius-m);overflow:hidden}
+.compare-col{padding:.9rem 1rem}
+.compare-col + .compare-col{border-left:1px solid var(--line)}
+.compare-col h3{font-size:.98rem;color:var(--navy-deep);margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
+.compare-col h3 .chip{font-size:var(--fs-xs);background:var(--navy-soft);color:var(--navy);padding:.02rem .4rem;border-radius:4px}
+.compare-col ul{padding-left:1.1rem;font-size:.92rem;color:var(--ink-2)}
+.compare-col.warm{background:#fffaf1}
+.compare-col.warm h3 .chip{background:var(--amber-soft);color:#8a5c05}
+
+/* 编号步骤 */
+.steps{list-style:none;padding:0;margin:0;counter-reset:step;display:grid;gap:.7rem}
+.steps li{
+  position:relative;padding:.75rem .9rem .75rem 2.8rem;margin:0;
+  border:1px solid var(--line);border-radius:var(--radius-m);background:#fbfcfe;
+  font-size:.94rem;
+}
+.steps li::before{
+  counter-increment:step;content:counter(step);
+  position:absolute;left:.75rem;top:.7rem;
+  width:1.5rem;height:1.5rem;border-radius:50%;
+  background:var(--navy);color:#fff;font-size:var(--fs-xs);font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.steps li strong{color:var(--navy-deep)}
+
+/* FAQ */
+.faq details{
+  border:1px solid var(--line);border-radius:var(--radius-m);margin-bottom:.6rem;
+  background:var(--white);overflow:hidden;
+}
+.faq details:last-child{margin-bottom:0}
+.faq summary{
+  list-style:none;cursor:pointer;padding:.72rem .9rem;
+  font-weight:600;font-size:.96rem;color:var(--navy-deep);
+  display:flex;justify-content:space-between;gap:.8rem;align-items:flex-start;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"+";flex:none;font-weight:700;color:var(--amber);font-size:1.1rem;line-height:1;
+  transition:transform .15s;
+}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details[open] summary{background:var(--navy-soft)}
+.faq .ans{padding:.75rem .9rem;font-size:.93rem;color:var(--ink-2);border-top:1px solid var(--line-soft)}
+
+/* 评论 */
+.comments{display:grid;gap:.7rem}
+.comment{
+  border:1px solid var(--line);border-radius:var(--radius-m);padding:.7rem .85rem;background:#fbfcfe;
+}
+.comment-top{display:flex;align-items:center;gap:.5rem;margin-bottom:.3rem;flex-wrap:wrap}
+.avatar{
+  width:28px;height:28px;border-radius:50%;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  font-size:var(--fs-xs);font-weight:700;color:#fff;background:var(--navy);
+}
+.avatar.a2{background:#8a5c05}
+.avatar.a3{background:var(--green)}
+.avatar.a4{background:#7a3b69}
+.avatar.a5{background:#3b6d7a}
+.comment-name{font-size:var(--fs-sm);font-weight:700;color:var(--ink)}
+.comment-time{font-size:var(--fs-xs);color:var(--ink-3);margin-left:auto}
+.comment p{margin:0;font-size:.93rem;color:var(--ink-2)}
+.comment .ref{
+  display:inline-block;font-size:var(--fs-xs);color:var(--navy);
+  background:var(--navy-soft);padding:.02rem .35rem;border-radius:4px;margin-right:.2rem;
+}
+
+/* 榜单 */
+.rank-list{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}
+.rank-list li{
+  display:grid;grid-template-columns:2rem 1fr auto;gap:.7rem;align-items:center;margin:0;
+  padding:.55rem .7rem;border:1px solid var(--line);border-radius:var(--radius-m);
+}
+.rank-list .no{
+  font-weight:800;font-size:1rem;color:var(--navy);font-variant-numeric:tabular-nums;text-align:center;
+}
+.rank-list li:nth-child(1) .no{color:#c98a09}
+.rank-list .who strong{display:block;font-size:.94rem;color:var(--ink)}
+.rank-list .who span{font-size:var(--fs-xs);color:var(--ink-3)}
+.rank-list .score{
+  font-size:.9rem;font-weight:700;color:var(--navy-deep);font-variant-numeric:tabular-nums;
+}
+
+/* 时间线 */
+.timeline{list-style:none;padding:0;margin:0;position:relative;display:grid;gap:.8rem}
+.timeline li{
+  position:relative;margin:0;padding:0 0 0 1.3rem;
+  border-left:2px solid var(--line);padding-bottom:.1rem;
+}
+.timeline li:last-child{border-left-color:transparent}
+.timeline li::before{
+  content:"";position:absolute;left:-6px;top:.45rem;width:10px;height:10px;border-radius:50%;
+  background:var(--amber);box-shadow:0 0 0 3px var(--amber-soft);
+}
+.timeline .when{font-size:var(--fs-xs);font-weight:700;color:var(--navy);display:block}
+.timeline .what{font-size:.93rem;color:var(--ink-2)}
+
+/* 侧栏 */
+.side-card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius-l);
+  padding:var(--sp-3);margin-bottom:var(--sp-3);box-shadow:var(--shadow-s);
+}
+.side-card h2{font-size:1rem;color:var(--navy-deep);margin-bottom:.7rem}
+.side-nav{list-style:none;padding:0;margin:0;display:grid;gap:.15rem}
+.side-nav a{
+  display:block;padding:.35rem .55rem;border-radius:var(--radius-s);
+  font-size:var(--fs-sm);color:var(--ink-2);border-left:3px solid transparent;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.side-nav a:hover{background:var(--navy-soft);text-decoration:none}
+.side-nav a.active{background:var(--navy-soft);color:var(--navy-deep);border-left-color:var(--amber);font-weight:700}
+.side-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.side-tags a{
+  font-size:var(--fs-xs);color:var(--ink-2);background:var(--bg);
+  border:1px solid var(--line);padding:.2rem .55rem;border-radius:999px;
+}
+.side-tags a:hover{background:var(--navy);color:#fff;text-decoration:none;border-color:var(--navy)}
+.side-note{font-size:var(--fs-xs);color:var(--ink-3);line-height:1.7}
+
+/* 页尾 */
+.site-footer{
+  background:var(--navy-deep);color:#b9c7de;font-size:var(--fs-sm);
+}
+.footer-inner{
+  max-width:var(--maxw);margin:0 auto;padding:var(--sp-5) var(--sp-3) var(--sp-4);
+  display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:var(--sp-4);
+}
+.footer-brand{display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem}
+.footer-brand svg{width:30px;height:30px}
+.footer-brand strong{color:#fff;font-size:1.05rem}
+.footer-tagline{color:#8ea3c4;font-size:var(--fs-sm);margin-bottom:.7rem;max-width:30em}
+.footer-col h3{font-size:.92rem;color:#fff;margin-bottom:.6rem;letter-spacing:.03em}
+.footer-col ul{list-style:none;padding:0;margin:0;display:grid;gap:.35rem}
+.footer-col a{color:#b9c7de;font-size:var(--fs-sm)}
+.footer-col a:hover{color:#fff}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.13);
+  max-width:var(--maxw);margin:0 auto;padding:var(--sp-3);
+  font-size:var(--fs-xs);color:#8ea3c4;display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;justify-content:space-between;
+}
+.footer-bottom .upd{color:#c4d2e8}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:1rem;bottom:1.2rem;z-index:50;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--navy);color:#fff;border:none;
+  display:none;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-m);
+}
+.to-top.on{display:flex}
+.to-top:hover{background:var(--navy-deep)}
+
+/* ===== 响应式 ===== */
+@media (max-width:1000px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  aside{order:2}
+  .hero-inner{grid-template-columns:1fr;padding-bottom:var(--sp-5)}
+  .hero-visual{max-width:300px;margin:0 auto}
+  .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .analysis-body{column-count:1}
+}
+@media (max-width:760px){
+  .main-nav{
+    display:none;position:absolute;left:0;right:0;top:100%;
+    background:var(--white);border-bottom:1px solid var(--line);
+    padding:.5rem var(--sp-3) .8rem;box-shadow:var(--shadow-m);
+  }
+  .main-nav.open{display:block}
+  .main-nav ul{flex-direction:column;gap:.1rem;overflow:visible}
+  .main-nav a{padding:.55rem .6rem}
+  .header-inner{position:relative}
+  .menu-btn{display:inline-flex}
+  .header-tools{margin-left:auto}
+  .search-box input{width:130px}
+  .hero-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+  .overview-grid{grid-template-columns:1fr}
+  .overview-main{border-right:none;padding-right:0;border-bottom:1px solid var(--line-soft);padding-bottom:var(--sp-3)}
+  .compare{grid-template-columns:1fr}
+  .compare-col + .compare-col{border-left:none;border-top:1px solid var(--line)}
+  .footer-inner{grid-template-columns:1fr;gap:var(--sp-3)}
+}
+@media (max-width:520px){
+  .card-grid{grid-template-columns:1fr}
+  .hero-inner{padding-top:var(--sp-4)}
+  .hero-stats dd{font-size:1.05rem}
+  .block{padding:var(--sp-3)}
+  .tight-list li{grid-template-columns:auto 1fr;row-gap:.2rem}
+  .tight-list .src{grid-column:2;text-align:left}
+  .announce .txt{font-size:.72rem}
+  .search-box input{width:104px}
+  .to-top{right:.7rem;bottom:.9rem;width:40px;height:40px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="announce" role="region" aria-label="站内更新公告">
+  <div class="wrap">
+    <span class="tag">更新</span>
+    <span class="txt">
+      11月7日 22:10 公布「城市越野赛」第3轮计时成绩复核结果；<a href="/#latest">查看榜单变动</a>
+    </span>
+  </div>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/#top" aria-label="返回首页顶部">
+      <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <rect width="64" height="64" rx="14" fill="#1d3b6e"/>
+        <path d="M14 44 L26 18 L34 34 L40 24 L52 44 Z" fill="#f5a524"/>
+        <circle cx="46" cy="18" r="5" fill="#e9eef7"/>
+      </svg>
+      <span class="brand-name">每日大赛每日爆料360</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="主题导航">
+      <ul>
+        <li><a href="/#overview">赛事概览</a></li>
+        <li><a href="/#picks">精选爆料</a></li>
+        <li><a href="/#latest">最新战报</a></li>
+        <li><a href="/#channels">赛道频道</a></li>
+        <li><a href="/#analysis">赛制解析</a></li>
+        <li><a href="/#guide">参赛指南</a></li>
+        <li><a href="/#ranking">积分榜</a></li>
+        <li><a href="/#faq">常见问题</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-tools">
+      <div class="search-box">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>
+        </svg>
+        <label class="sr-only" for="siteSearch">站内搜索赛事名称</label>
+        <input id="siteSearch" type="search" placeholder="搜赛道 / 选手" autocomplete="off">
+        <div class="search-feedback" id="searchFeedback" aria-live="polite"></div>
+      </div>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="展开导航菜单">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- 主题首屏 -->
+<div class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-badge">2026 赛季 · 第 3 赛段</span>
+      <h1>每日大赛每日爆料360</h1>
+      <p class="hero-lead">
+        覆盖城市越野、场地竞速、极限技巧、团队接力四大赛道的赛程与成绩。每轮比赛结束 4 小时内更新计时表，爆料先核实来源再发布，评分争议按原始记录逐条对照。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/#latest">看最新赛果</a>
+        <a class="btn btn-ghost" href="/#guide">参赛报名流程</a>
+      </div>
+      <dl class="hero-stats">
+        <div><dt>在办赛事</dt><dd>14<span>项</span></dd></div>
+        <div><dt>登记选手</dt><dd>2,681<span>人</span></dd></div>
+        <div><dt>赛事赛道</dt><dd>4<span>条</span></dd></div>
+        <div><dt>本周更新</dt><dd>37<span>条</span></dd></div>
+      </dl>
+    </div>
+
+    <!-- 原创视觉构图：赛道雷达 -->
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 400 400" role="presentation">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="45%" r="60%">
+            <stop offset="0%" stop-color="#3a67ad" stop-opacity=".9"/>
+            <stop offset="70%" stop-color="#1d3b6e" stop-opacity=".55"/>
+            <stop offset="100%" stop-color="#12264a" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="rung" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#f5a524"/>
+            <stop offset="100%" stop-color="#ffd08a" stop-opacity=".5"/>
+          </linearGradient>
+        </defs>
+        <circle cx="200" cy="200" r="185" fill="url(#glow)"/>
+        <g fill="none" stroke="#7c9bd0" stroke-opacity=".38">
+          <circle cx="200" cy="200" r="150"/>
+          <circle cx="200" cy="200" r="110"/>
+          <circle cx="200" cy="200" r="70"/>
+          <circle cx="200" cy="200" r="30"/>
+          <path d="M200 50V350M50 200H350M94 94L306 306M306 94L94 306"/>
+        </g>
+        <g stroke="#9fb8e0" stroke-opacity=".55" stroke-dasharray="4 7">
+          <path d="M200 200L200 62M200 200L318 128M200 200L330 258M200 200L206 338"/>
+        </g>
+        <polygon points="200,78 292,142 300,262 200,330 118,258 108,142" fill="#f5a524" fill-opacity=".16" stroke="url(#rung)" stroke-width="2.5"/>
+        <g fill="#f5a524">
+          <circle cx="200" cy="78" r="6"/>
+          <circle cx="292" cy="142" r="5"/>
+          <circle cx="300" cy="262" r="5"/>
+          <circle cx="200" cy="330" r="6"/>
+          <circle cx="118" cy="258" r="5"/>
+          <circle cx="108" cy="142" r="5"/>
+        </g>
+        <circle cx="200" cy="200" r="9" fill="#e9eef7"/>
+        <circle cx="200" cy="200" r="4" fill="#1d3b6e"/>
+        <g font-family="sans-serif" font-size="13" fill="#cfe0f7" font-weight="600">
+          <text x="200" y="40" text-anchor="middle">越野</text>
+          <text x="340" y="120" text-anchor="middle">竞速</text>
+          <text x="352" y="272" text-anchor="middle">技巧</text>
+          <text x="200" y="368" text-anchor="middle">接力</text>
+          <text x="58" y="272" text-anchor="end">计时</text>
+          <text x="60" y="120" text-anchor="end">裁判</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- 主体 -->
+<div class="layout">
+
+  <main>
+
+    <!-- 1 领域概览 -->
+    <section class="block" id="overview" aria-labelledby="h-overview">
+      <div class="block-head">
+        <div>
+          <span class="kicker">SECTOR 01</span>
+          <h2 id="h-overview">赛事全景：四赛道与三条积分线</h2>
+        </div>
+        <p>数据截至 2026-11-08 09:30</p>
+      </div>
+      <div class="overview-grid">
+        <div class="overview-main">
+          <p>第 3 赛段从 10 月 26 日开跑，四类赛事分线并行：城市越野赛按累计爬升分 A、B 两组；场地竞速赛设 200 米与 400 米直道；极限技巧赛以单项动作完成度计分；团队接力赛每队 4 人、交接区固定在第 800 米处。</p>
+          <p>积分由三块构成——完赛分、名次分、违规扣分。11 月 5 日修订的《计时复核细则》把申诉窗口从赛后 24 小时延长到 48 小时，直接影响 11 月 3 日之后的成绩确认节奏。当天两场越野 B 组比赛已有 4 支队伍提交复核申请。</p>
+          <ul>
+            <li>城市越野 B 组累计爬升门槛：单圈 320 米，共 6 圈</li>
+            <li>场地竞速 400 米直道分段计时点：100 / 250 / 400 米</li>
+            <li>技巧赛动作库：现有 38 个登记动作，新动作需赛前 7 天报备</li>
+          </ul>
+        </div>
+        <div class="overview-side">
+          <div class="mini-stat"><strong>14</strong><span>在办赛事 · 含 3 项新增资格赛</span></div>
+          <div class="mini-stat"><strong>48 小时</strong><span>成绩申诉窗口（11月5日起）</span></div>
+          <div class="mini-stat"><strong>6 轮</strong><span>本赛段剩余比赛轮次</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 精选内容推荐 -->
+    <section class="block" id="picks" aria-labelledby="h-picks">
+      <div class="block-head">
+        <div>
+          <span class="kicker">SECTOR 02</span>
+          <h2 id="h-picks">精选爆料与赛前情报</h2>
+        </div>
+        <p>编辑挑出的 6 条可核对信息</p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <figure><img src="https://picsum.photos/seed/trailrun-oct/480/270" width="480" height="270" loading="lazy" alt="城市越野赛选手在石阶赛道爬升，赛道两侧悬挂计时标牌"></figure>
+          <div class="card-body">
+            <span class="card-tag">越野赛</span>
+            <h3><a href="/#latest">石阶赛段碎石段改线，11月6日起启用南坡备用路线</a></h3>
+            <div class="card-meta"><span>越野 A 组</span><span class="dot">·</span><span>11-06</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <figure><img src="https://picsum.photos/seed/sprint-lane/480/270" width="480" height="270" loading="lazy" alt="场地竞速赛400米直道，起跑器与分段计时感应带"></figure>
+          <div class="card-body">
+            <span class="card-tag">竞速赛</span>
+            <h3><a href="/#latest">400米直道分段感应带回装，前 250 米数据补齐</a></h3>
+            <div class="card-meta"><span>场地竞速</span><span class="dot">·</span><span>11-05</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <figure><img src="https://picsum.photos/seed/teamrelay/480/270" width="480" height="270" loading="lazy" alt="团队接力赛交接区，两队选手在800米标记处完成交接棒"></figure>
+          <div class="card-body">
+            <span class="card-tag">接力赛</span>
+            <h3><a href="/#analysis">交接区判罚口径变化：越线踩线不再直接取消成绩</a></h3>
+            <div class="card-meta"><span>规则修订</span><span class="dot">·</span><span>11-04</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <figure><img src="https://picsum.photos/seed/trickfloor/480/270" width="480" height="270" loading="lazy" alt="极限技巧赛场地，选手在木质台面完成连招动作"></figure>
+          <div class="card-body">
+            <span class="card-tag">技巧赛</span>
+            <h3><a href="/#ranking">技巧赛动作库新增 3 个登记动作，完成度系数同步上调</a></h3>
+            <div class="card-meta"><span>动作规范</span><span class="dot">·</span><span>11-03</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <figure><img src="https://picsum.photos/seed/timingboard/480/270" width="480" height="270" loading="lazy" alt="赛事计时板显示选手分段成绩与排名变化"></figure>
+          <div class="card-body">
+            <span class="card-tag">计时</span>
+            <h3><a href="/#latest">第2轮计时复核：3处计圈误差，涉及2支B组队伍</a></h3>
+            <div class="card-meta"><span>赛果更正</span><span class="dot">·</span><span>11-02</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <figure><img src="https://picsum.photos/seed/judgepanel/480/270" width="480" height="270" loading="lazy" alt="裁判席上多名裁判使用平板查看裁决回放"></figure>
+          <div class="card-body">
+            <span class="card-tag">裁判</span>
+            <h3><a href="/#faq">裁判共3人，主裁与边裁分工区别到底在哪</a></h3>
+            <div class="card-meta"><span>规则问答</span><span class="dot">·</span><span>11-01</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3 最新更新 -->
+    <section class="block" id="latest" aria-labelledby="h-latest">
+      <div class="block-head">
+        <div>
+          <span class="kicker">SECTOR 03</span>
+          <h2 id="h-latest">最新战报与更正</h2>
+        </div>
+        <p>按发布时间倒序，含赛果更正标注</p>
+      </div>
+      <ul class="tight-list">
+        <li><span class="t">11-07 22:10</span><a class="link" href="/#ranking">城市越野赛第3轮计时复核结果：B组第6圈成绩下修 12 秒</a><span class="src">来源：计时组公告</span></li>
+        <li><span class="t">11-07 15:40</span><a class="link" href="/#picks">场地竞速 400 米半决赛名单确定，共 16 人进决赛</a><span class="src">来源：竞赛部</span></li>
+        <li><span class="t">11-06 19:05</span><a class="link" href="/#channels">石阶赛段南坡备用路线启用，首批 22 人完成试跑</a><span class="src">来源：赛道组</span></li>
+        <li><span class="t">11-06 10:22</span><a class="link" href="/#guide">第4轮报名通道开放，接力赛剩余 9 个队伍名额</a><span class="src">来源：报名系统</span></li>
+        <li><span class="t">11-05 16:55</span><a class="link" href="/#analysis">计时复核细则修订：申诉窗口 24 小时延长为 48 小时</a><span class="src">来源：仲裁委员会</span></li>
+        <li><span class="t">11-04 21:30</span><a class="link" href="/#analysis">接力赛交接区踩线判罚改为警告加 3 秒，不再直接取消</a><span class="src">来源：裁判组通报</span></li>
+        <li><span class="t">11-03 13:15</span><a class="link" href="/#ranking">技巧赛动作库新增 3 个登记动作，完成度系数上调 0.05</a><span class="src">来源：技术委员会</span></li>
+        <li><span class="t">11-02 09:48</span><a class="link" href="/#latest">第2轮计圈误差更正：涉及 2 支 B 组队伍、共 3 处记录</a><span class="src">来源：计时组</span></li>
+      </ul>
+    </section>
+
+    <!-- 4 分类入口 -->
+    <section class="block" id="channels" aria-labelledby="h-channels">
+      <div class="block-head">
+        <div>
+          <span class="kicker">SECTOR 04</span>
+          <h2 id="h-channels">赛道与专题频道</h2>
+        </div>
+        <p>按项目、规则、角色划分的 10 个入口</p>
+      </div>
+      <div class="tag-index">
+        <a href="/#overview">城市越野赛 A 组<span class="n">86</span></a>
+        <a href="/#overview">城市越野赛 B 组<span class="n">74</span></a>
+        <a href="/#picks">场地竞速 200 米<span class="n">41</span></a>
+        <a href="/#picks">场地竞速 400 米<span class="n">39</span></a>
+        <a href="/#analysis">极限技巧单项动作<span class="n">38</span></a>
+        <a href="/#analysis">团队接力交接区<span class="n">27</span></a>
+        <a href="/#latest">分段计时与复核<span class="n">52</span></a>
+        <a href="/#faq">裁判判罚口径<span class="n">33</span></a>
+        <a href="/#guide">参赛报名与体检<span class="n">24</span></a>
+        <a href="/#ranking">赛段积分榜<span class="n">19</span></a>
+      </div>
+    </section>
+
+    <!-- 5 深度解析（唯一主体阅读区） -->
+    <section class="block" id="analysis" aria-labelledby="h-analysis">
+      <div class="block-head">
+        <div>
+          <span class="kicker">SECTOR 05</span>
+          <h2 id="h-analysis">赛制解析：48 小时申诉窗口改变了什么</h2>
+        </div>
+        <p>结合 10 月 26 日至今的 11 条复核记录</p>
+      </div>
+      <div class="analysis-body">
+        <p>11 月 5 日之前，成绩申诉必须在赛后 24 小时内提交。第 2 轮越野 B 组比赛在 11 月 1 日 18:20 结束，计时表 19:05 挂出，复核截止时间落在 11 月 2 日 19:05。实际到 11 月 3 日上午，仍有 2 支队伍提交了计圈异议，被以超时为由驳回。仲裁委员会在 11 月 5 日的通报里写明，把窗口延长到 48 小时，理由是「选手返程后才有条件调取自备设备记录」。</p>
+
+        <p class="pull">可被反驳的判断：窗口延长主要利好中后段队伍，而非领跑队伍。理由是前 6 名的计时误差在 11 条复核记录里只出现 1 次，后 10 名出现了 7 次。</p>
+
+        <h3>三次复核记录的时间线</h3>
+        <p>10 月 28 日，场地竞速 200 米预赛，第 3 道选手的分段计时缺失 100 米节点，计时组用视频补录，成绩未变。11 月 2 日，越野 B 组第 2 轮，3 处计圈误差集中在第 4、5 圈，涉及 2 支队伍，最终名次互换 1 位。11 月 7 日，越野 B 组第 3 轮，第 6 圈成绩下修 12 秒，该队从第 4 落到第 6。三次记录里，两次的误差来源都是手动计圈替代了感应带。</p>
+
+        <h3>规则前后变化的对照</h3>
+        <p>旧规则下，计时组挂表即视为成绩确认，复核只能改「明显误差」。新细则把「明显误差」具体化为三项可核对条件：感应带数据缺失超过 1 个节点、视频回放与挂表时间差超过 3 秒、两名以上裁判独立记录不一致。满足任一条即可受理，不再要求选手自证。这一改动让 11 月 5 日之后的受理率从 11 条里的 4 条升到 6 条里的 5 条。</p>
+
+        <div class="checklist">
+          <strong>可核对结构：一次申诉要过哪几关</strong>
+          <ul>
+            <li>提交时间在赛后 48 小时内，附参赛编号</li>
+            <li>指出具体圈次或分段节点，不接受笼统异议</li>
+            <li>计时组调取感应带原始数据与视频回放</li>
+            <li>两名以上裁判独立复核，意见不一致时交仲裁委员会</li>
+            <li>结果在 24 小时内公示，名次变动同步更新积分榜</li>
+          </ul>
+        </div>
+
+        <h3>说法差异：谁在承担复核成本</h3>
+        <p>技术委员会的说法是复核不额外收费，成本由赛事方承担。计时组的公开说明则提到，每次复核需要 2 名技术员、约 40 分钟的视频回看，第 3 轮共 6 次申请，累计占用约 4 小时。两种说法不矛盾，但侧重不同：前者讲选手端，后者讲执行端。至于 48 小时是否进一步延长到 72 小时，目前只是赛前说明会上的一句提议，尚无书面文件，属于推测层面。</p>
+
+        <h3>对接力赛的连带影响</h3>
+        <p>接力赛的交接区判罚在 11 月 4 日同步调整，踩线从直接取消改为警告加 3 秒。两项修订叠加后，接力赛的申诉集中在交接瞬间的判罚，而非总成绩。11 月 6 日的一场接力赛出现 2 次踩线判罚，均按新口径处理，赛后无申诉。这说明改判的争议点正从「有没有违规」转向「罚多少秒」。</p>
+      </div>
+    </section>
+
+    <!-- 6 体验指南（对照面板 + 编号步骤） -->
+    <section class="block" id="guide" aria-labelledby="h-guide">
+      <div class="block-head">
+        <div>
+          <span class="kicker">SECTOR 06</span>
+          <h2 id="h-guide">参赛与观赛体验指南</h2>
+        </div>
+        <p>首次参赛与首次到场各 5 步</p>
+      </div>
+
+      <div class="compare">
+        <div class="compare-col">
+          <h3>首次参赛 <span class="chip">选手视角</span></h3>
+          <ul>
+            <li>赛前 7 天完成体检上传，项目含心电与血压两项</li>
+            <li>报名时选赛道与组别，越野 B 组需提供近 12 个月完赛证明</li>
+            <li>赛前 1 天领取号码布与感应芯片，芯片押金 50 元</li>
+            <li>检录在开赛前 30 分钟截止，迟到按弃赛处理</li>
+            <li>完赛后 4 小时内可在成绩页下载分段计时表</li>
+          </ul>
+        </div>
+        <div class="compare-col warm">
+          <h3>首次到场 <span class="chip">观众视角</span></h3>
+          <ul>
+            <li>越野赛观赛点在石阶段第 3 弯，需步行约 15 分钟</li>
+            <li>竞速赛看台不对号入座，400 米直道终点侧视野更完整</li>
+            <li>技巧赛禁止使用闪光灯，台面正前方 10 米为拍摄区</li>
+            <li>接力赛交接区仅限持证人员进入，观众在 800 米标记外等候</li>
+            <li>现场大屏每 2 分钟刷新一次名次，与线上计时表同步</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="sub-h">报名到完赛的 5 个步骤</h3>
+      <ol class="steps">
+        <li><strong>选赛道。</strong>先看组别门槛：越野 A 组要求单圈爬升 320 米以上完赛经历，B 组无硬性门槛但有体检要求。</li>
+        <li><strong>上传材料。</strong>身份证、体检报告、完赛证明三件套，格式限 PDF 或 JPG，单份不超过 5MB。</li>
+        <li><strong>缴费锁位。</strong>报名费按赛道区分，越野 120 元、竞速 80 元、技巧 100 元、接力每队 320 元。</li>
+        <li><strong>领物与检录。</strong>赛前 1 天领号码布，比赛日提前 30 分钟检录，芯片需在检录时激活。</li>
+        <li><strong>赛后复核。</strong>对成绩有异议在 48 小时内提交，写明圈次或分段节点，等待公示。</li>
+      </ol>
+    </section>
+
+    <!-- 7 常见问题 -->
+    <section class="block" id="faq" aria-labelledby="h-faq">
+      <div class="block-head">
+        <div>
+          <span class="kicker">SECTOR 07</span>
+          <h2 id="h-faq">常见问题</h2>
+        </div>
+        <p>7 个高频疑问，按规则原文回答</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>城市越野赛 B 组的爬升门槛怎么算？</summary>
+          <div class="ans">按单圈累计爬升 320 米计，共 6 圈，总爬升约 1,920 米。赛道组在 10 月 28 日的路线说明里标注，南坡备用路线的爬升比主路线低约 40 米，改线后总爬升按 1,880 米复核。</div>
+        </details>
+        <details>
+          <summary>成绩申诉为什么要求写具体圈次？</summary>
+          <div class="ans">计时组的复核流程需要定位原始感应带数据。只写「成绩不对」无法确定调取哪一段记录，11 月 2 日的 3 处计圈误差就是因为选手指明了第 4、5 圈才快速定位。</div>
+        </details>
+        <details>
+          <summary>接力赛交接区踩线现在怎么罚？</summary>
+          <div class="ans">11 月 4 日起改为警告加 3 秒，不再直接取消成绩。裁判组通报写明，同一队累计 2 次踩线仍可能被判取消，具体看是否影响其他队伍交接。</div>
+        </details>
+        <details>
+          <summary>技巧赛新增动作怎么报备？</summary>
+          <div class="ans">需在赛前 7 天提交动作视频与文字描述，由技术委员会判定是否纳入动作库。11 月 3 日新增 3 个动作后，库内共 38 个，完成度系数上调 0.05。</div>
+        </details>
+        <details>
+          <summary>分段计时表在哪里下载？</summary>
+          <div class="ans">完赛后 4 小时开放下载，入口在成绩页的选手编号下。11 月 5 日之前的比赛只有总成绩，分段数据从第 3 赛段起补齐。</div>
+        </details>
+        <details>
+          <summary>报名后临时退出能退费吗？</summary>
+          <div class="ans">开赛前 72 小时可退 80%，72 小时内不退。接力赛按队伍整体处理，换人需在检录前完成，换人不超过 1 人。</div>
+        </details>
+        <details>
+          <summary>裁判三人各管什么？</summary>
+          <div class="ans">主裁负责起终点判罚与最终裁决，两名边裁分别盯赛道中段与交接区。意见不一致时由主裁提交仲裁委员会，11 月 6 日的 2 次踩线判罚就是边裁先记录、主裁确认。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8 用户评论 -->
+    <section class="block" id="comments" aria-labelledby="h-comments">
+      <div class="block-head">
+        <div>
+          <span class="kicker">SECTOR 08</span>
+          <h2 id="h-comments">选手与观众的现场反馈</h2>
+        </div>
+        <p>5 条留言，含对具体条目的意见</p>
+      </div>
+      <div class="comments">
+        <div class="comment">
+          <div class="comment-top"><span class="avatar">陈</span><span class="comment-name">陈叙</span><span class="comment-time">11-07 23:02</span></div>
+          <p><span class="ref">越野B组第3轮</span>第 6 圈下修 12 秒这条，我认。感应带那段确实没数据，视频回放里能看到我过线的时间点，和挂表差了两秒多。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><span class="avatar a2">林</span><span class="comment-name">林见山</span><span class="comment-time">11-07 18:47</span></div>
+          <p><span class="ref">南坡备用路线</span>试跑了一次，爬升是低了，但碎石多，鞋底薄的选手未必占便宜。40 米的差值说得轻巧。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><span class="avatar a3">赵</span><span class="comment-name">赵小满</span><span class="comment-time">11-06 20:15</span></div>
+          <p><span class="ref">接力赛交接区</span>踩线改罚 3 秒这个调整挺实际的，之前一次踩线直接取消，队友练了两个月白搭。不过同一队两次还是取消，这条边界得写清楚。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><span class="avatar a4">周</span><span class="comment-name">周牧</span><span class="comment-time">11-05 21:33</span></div>
+          <p>48 小时窗口延长对普通选手是好事，就是公示节奏变慢了。11 月 2 日那场到 11 月 4 日才出结果，中间名次一直挂着不动。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-top"><span class="avatar a5">吴</span><span class="comment-name">吴岸</span><span class="comment-time">11-04 12:08</span></div>
+          <p><span class="ref">技巧赛动作库</span>系数上调 0.05，等于老动作的分数也被带着涨，那新练的三个动作优势就没那么明显了。这条我不太理解。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 相关资讯 -->
+    <section class="block" id="news" aria-labelledby="h-news">
+      <div class="block-head">
+        <div>
+          <span class="kicker">SECTOR 09</span>
+          <h2 id="h-news">周边资讯与赛场动态</h2>
+        </div>
+        <p>与赛程相关的场地、装备、天气信息</p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <figure><img src="https://picsum.photos/seed/weatherfield/480/270" width="480" height="270" loading="lazy" alt="赛场天气预报牌显示气温与风力，选手在场边准备"></figure>
+          <div class="card-body">
+            <span class="card-tag">天气</span>
+            <h3><a href="/#news">11月8日赛场风力 4 级，技巧赛台面动作建议降一档难度</a></h3>
+            <div class="card-meta"><span>赛场气象</span><span class="dot">·</span><span>11-08</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <figure><img src="https://picsum.photos/seed/shoedesk/480/270" width="480" height="270" loading="lazy" alt="装备检查台陈列越野跑鞋与感应芯片"></figure>
+          <div class="card-body">
+            <span class="card-tag">装备</span>
+            <h3><a href="/#guide">感应芯片押金调整为 50 元，赛后当天可退</a></h3>
+            <div class="card-meta"><span>领物须知</span><span class="dot">·</span><span>11-06</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <figure><img src="https://picsum.photos/seed/standseats/480/270" width="480" height="270" loading="lazy" alt="竞速赛看台观众区，终点击掌区与计时大屏"></figure>
+          <div class="card-body">
+            <span class="card-tag">场地</span>
+            <h3><a href="/#guide">400米直道看台增设终点击掌区，观众动线改走东侧入口</a></h3>
+            <div class="card-meta"><span>场地调整</span><span class="dot">·</span><span>11-05</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10 相关推荐 -->
+    <section class="block" id="related" aria-labelledby="h-related">
+      <div class="block-head">
+        <div>
+          <span class="kicker">SECTOR 10</span>
+          <h2 id="h-related">相关推荐</h2>
+        </div>
+        <p>按近期查阅热度排列</p>
+      </div>
+      <div class="tag-index">
+        <a href="/#analysis">城市越野赛计圈误差判定</a>
+        <a href="/#guide">接力赛换人规则</a>
+        <a href="/#faq">技巧赛完成度系数</a>
+        <a href="/#ranking">第3赛段积分榜变动</a>
+        <a href="/#latest">分段计时表下载说明</a>
+        <a href="/#guide">越野B组体检项目</a>
+        <a href="/#comments">南坡备用路线试跑反馈</a>
+        <a href="/#news">赛场风力对技巧赛的影响</a>
+      </div>
+    </section>
+
+    <!-- 11 积分榜 + 时间线 -->
+    <section class="block" id="ranking" aria-labelledby="h-ranking">
+      <div class="block-head">
+        <div>
+          <span class="kicker">SECTOR 11</span>
+          <h2 id="h-ranking">赛段积分榜与本周节点</h2>
+        </div>
+        <p>第 3 赛段，含 11 月 7 日复核后的调整</p>
+      </div>
+      <ol class="rank-list">
+        <li><span class="no">1</span><span class="who"><strong>沈砚</strong><span>越野 A 组 · 完赛 5 场</span></span><span class="score">382 分</span></li>
+        <li><span class="no">2</span><span class="who"><strong>杜行舟</strong><span>场地竞速 400 米 · 完赛 4 场</span></span><span class="score">351 分</span></li>
+        <li><span class="no">3</span><span class="who"><strong>祁野</strong><span>极限技巧 · 完赛 4 场</span></span><span class="score">344 分</span></li>
+        <li><span class="no">4</span><span class="who"><strong>北岸接力一队</strong><span>团队接力 · 完赛 5 场</span></span><span class="score">328 分</span></li>
+        <li><span class="no">5</span><span class="who"><strong>罗青禾</strong><span>越野 B 组 · 完赛 5 场</span></span><span class="score">316 分</span></li>
+      </ol>
+
+      <h3 class="sub-h">本周关键节点</h3>
+      <ul class="timeline">
+        <li><span class="when">11-05 仲裁委员会通报</span><span class="what">申诉窗口由 24 小时延长至 48 小时，适用于 11 月 5 日后的全部赛事。</span></li>
+        <li><span class="when">11-06 赛道组通告</span><span class="what">石阶赛段南坡备用路线启用，首批 22 人试跑，总爬升按 1,880 米复核。</span></li>
+        <li><span class="when">11-07 计时组公示</span><span class="what">越野 B 组第 3 轮第 6 圈成绩下修 12 秒，该队名次由第 4 降至第 6。</span></li>
+        <li><span class="when">11-08 赛场气象</span><span class="what">风力 4 级，技巧赛台面动作建议降档，当日比赛照常进行。</span></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- 侧栏 -->
+  <aside aria-label="侧栏导航与标签">
+    <nav class="side-card" aria-label="栏目快速导航">
+      <h2>栏目导航</h2>
+      <ul class="side-nav" id="sideNav">
+        <li><a href="/#overview">赛事概览</a></li>
+        <li><a href="/#picks">精选爆料</a></li>
+        <li><a href="/#latest">最新战报</a></li>
+        <li><a href="/#channels">赛道频道</a></li>
+        <li><a href="/#analysis">赛制解析</a></li>
+        <li><a href="/#guide">体验指南</a></li>
+        <li><a href="/#faq">常见问题</a></li>
+        <li><a href="/#comments">现场反馈</a></li>
+        <li><a href="/#news">周边资讯</a></li>
+        <li><a href="/#related">相关推荐</a></li>
+        <li><a href="/#ranking">积分榜</a></li>
+      </ul>
+    </nav>
+
+    <div class="side-card">
+      <h2>热搜标签</h2>
+      <div class="side-tags">
+        <a href="/#analysis">计圈误差</a>
+        <a href="/#analysis">48小时申诉</a>
+        <a href="/#guide">交接区踩线</a>
+        <a href="/#faq">动作库系数</a>
+        <a href="/#guide">爬升门槛</a>
+        <a href="/#latest">分段计时表</a>
+      </div>
+    </div>
+
+    <div class="side-card">
+      <h2>数据说明</h2>
+      <p class="side-note">选手姓名、队伍名、积分与计时数据为示例条目，用于展示栏目结构；规则修订日期以公告文本为准。复核记录随赛事推进更新。</p>
+    </div>
+  </aside>
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer" id="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect width="64" height="64" rx="14" fill="#f5a524"/>
+          <path d="M14 44 L26 18 L34 34 L40 24 L52 44 Z" fill="#142a52"/>
+        </svg>
+        <strong>每日大赛每日爆料360</strong>
+      </div>
+      <p class="footer-tagline">按圈次、分段与判罚口径记录赛果，只发布有原始数据可对的内容。</p>
+    </div>
+    <div class="footer-col">
+      <h3>赛事栏目</h3>
+      <ul>
+        <li><a href="/#overview">四赛道概览</a></li>
+        <li><a href="/#latest">最新战报</a></li>
+        <li><a href="/#ranking">第3赛段积分榜</a></li>
+        <li><a href="/#analysis">赛制解析</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>参赛与提问</h3>
+      <ul>
+        <li><a href="/#guide">报名到完赛步骤</a></li>
+        <li><a href="/#faq">常见问题</a></li>
+        <li><a href="/#comments">现场反馈</a></li>
+        <li><a href="/#related">相关推荐</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>内容为示例数据，选手、队伍与成绩条目仅用于栏目演示。</span>
+    <span class="upd">页面更新：2026-11-08 · 对应正文「最新战报」与「积分榜」两条更新项</span>
+    <span>© 2026 每日大赛每日爆料360</span>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="回到页面顶部">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"每日大赛每日爆料360",
+  "description":"赛事赛程、赛果与选手动态聚合，按赛道拆解赛制与评分口径差异，整理现场看点、答疑与积分榜。",
+  "inLanguage":"zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"城市越野赛 B 组的爬升门槛怎么算？","acceptedAnswer":{"@type":"Answer","text":"按单圈累计爬升 320 米计，共 6 圈，总爬升约 1,920 米；南坡备用路线启用后按 1,880 米复核。"}},
+    {"@type":"Question","name":"成绩申诉为什么要求写具体圈次？","acceptedAnswer":{"@type":"Answer","text":"计时组复核需定位原始感应带数据，写明圈次才能快速调取对应记录，11 月 2 日的计圈误差即因选手指明第 4、5 圈而定位。"}},
+    {"@type":"Question","name":"接力赛交接区踩线现在怎么罚？","acceptedAnswer":{"@type":"Answer","text":"11 月 4 日起改为警告加 3 秒，不再直接取消成绩；同一队累计 2 次踩线仍可能被判取消。"}},
+    {"@type":"Question","name":"技巧赛新增动作怎么报备？","acceptedAnswer":{"@type":"Answer","text":"赛前 7 天提交动作视频与文字描述，由技术委员会判定是否纳入动作库，11 月 3 日新增 3 个动作后库内共 38 个。"}},
+    {"@type":"Question","name":"分段计时表在哪里下载？","acceptedAnswer":{"@type":"Answer","text":"完赛后 4 小时开放下载，入口在成绩页的选手编号下；第 3 赛段起补齐分段数据。"}},
+    {"@type":"Question","name":"报名后临时退出能退费吗？","acceptedAnswer":{"@type":"Answer","text":"开赛前 72 小时可退 80%，72 小时内不退；接力赛按队伍整体处理，检录前可换人且不超过 1 人。"}},
+    {"@type":"Question","name":"裁判三人各管什么？","acceptedAnswer":{"@type":"Answer","text":"主裁负责起终点判罚与最终裁决，两名边裁分别盯赛道中段与交接区，意见不一致时提交仲裁委员会。"}}
+  ]
+}
+</script>
+
+<script>
+(function(){
+  "use strict";
+
+  /* 移动端菜单 */
+  var menuBtn = document.getElementById('menuBtn');
+  var mainNav = document.getElementById('mainNav');
+
+  function closeMenu(){
+    if(!mainNav || !menuBtn) return;
+    mainNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded','false');
+    menuBtn.setAttribute('aria-label','展开导航菜单');
+  }
+  if(menuBtn && mainNav){
+    menuBtn.addEventListener('click', function(){
+      var open = mainNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuBtn.setAttribute('aria-label', open ? '收起导航菜单' : '展开导航菜单');
+    });
+    mainNav.addEventListener('click', function(e){
+      if(e.target && e.target.tagName === 'A'){ closeMenu(); }
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){ closeMenu(); }
+    });
+  }
+
+  /* 本页内可检索内容索引 */
+  var index = [
+    {t:'城市越野赛 A 组', k:'越野 爬升 320 米 石阶 南坡 备用路线', id:'overview'},
+    {t:'城市越野赛 B 组', k:'越野 B组 计圈 复核 爬升 1880', id:'overview'},
+    {t:'场地竞速 200 米', k:'竞速 200米 直道 分段 感应带', id:'picks'},
+    {t:'场地竞速 400 米', k:'竞速 400米 半决赛 决赛 分段计时', id:'latest'},
+    {t:'极限技巧单项动作', k:'技巧 动作库 38 完成度 系数 0.05', id:'faq'},
+    {t:'团队接力交接区', k:'接力 交接区 踩线 3秒 换人', id:'analysis'},
+    {t:'48 小时申诉窗口', k:'申诉 48小时 24小时 复核 仲裁', id:'analysis'},
+    {t:'第3赛段积分榜', k:'积分榜 沈砚 杜行舟 祁野 排名', id:'ranking'},
+    {t:'分段计时表下载', k:'计时表 下载 完赛 4小时 选手编号', id:'faq'},
+    {t:'技巧赛完成度系数', k:'技巧 系数 上调 动作', id:'faq'},
+    {t:'南坡备用路线试跑', k:'南坡 试跑 22人 碎石 爬升', id:'news'},
+    {t:'赛场风力与技巧赛', k:'风力 4级 台面 降档 气象', id:'news'}
+  ];
+
+  var input = document.getElementById('siteSearch');
+  var feedback = document.getElementById('searchFeedback');
+
+  function esc(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function renderFeedback(html){
+    if(!feedback) return;
+    feedback.innerHTML = html;
+    feedback.classList.add('on');
+  }
+
+  function runSearch(q){
+    q = q.trim();
+    if(!q){
+      feedback.classList.remove('on');
+      feedback.innerHTML = '';
+      return;
+    }
+    if(q.length < 1){ return; }
+    var hits = index.filter(function(item){
+      return item.t.indexOf(q) > -1 || item.k.indexOf(q) > -1;
+    });
+    if(hits.length === 0){
+      renderFeedback('未找到与「' + esc(q) + '」相关的赛道或条目，可试试「越野」「交接区」「申诉」等关键词。');
+      return;
+    }
+    var max = Math.min(hits.length, 5);
+    var list = '';
+    for(var i=0;i<max;i++){
+      list += '<div><a href="/#' + hits[i].id + '">' + esc(hits[i].t) + '</a></div>';
+    }
+    renderFeedback('找到 ' + hits.length + ' 条：' + list);
+  }
+
+  if(input && feedback){
+    input.addEventListener('input', function(){
+      runSearch(input.value);
+    });
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        runSearch(input.value);
+      }
+    });
+    document.addEventListener('click', function(e){
+      if(!feedback.contains(e.target) && e.target !== input){
+        feedback.classList.remove('on');
+      }
+    });
+    feedback.addEventListener('click', function(e){
+      if(e.target && e.target.tagName === 'A'){
+        feedback.classList.remove('on');
+      }
+    });
+  }
+
+  /* 平滑滚动：为吸顶留偏移 */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a') : null;
+    if(!a) return;
+    var href = a.getAttribute('href') || '';
+    if(href.indexOf('/#') !== 0) return;
+    var id = href.slice(2);
+    if(!id) return;
+    var target = document.getElementById(id);
+    if(!target) return;
+    e.preventDefault();
+    var stick = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--stick')) || 100;
+    var top = target.getBoundingClientRect().top + window.pageYOffset - stick - 14;
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      window.scrollTo(0, top);
+    } else {
+      window.scrollTo({top: top, behavior:'smooth'});
+    }
+    if(history.replaceState){ history.replaceState(null, '', '/#' + id); }
+    closeMenu();
+  });
+
+  /* 回到顶部 */
+  var toTop = document.getElementById('toTop');
+  function onScroll(){
+    if(!toTop) return;
+    if(window.pageYOffset > 520){
+      toTop.classList.add('on');
+    } else {
+      toTop.classList.remove('on');
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  if(toTop){
+    toTop.addEventListener('click', function(){
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        window.scrollTo(0, 0);
+      } else {
+        window.scrollTo({top:0, behavior:'smooth'});
+      }
+    });
+  }
+
+  /* 侧栏滚动高亮 */
+  var sideLinks = Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+  var sections = sideLinks.map(function(a){
+    var id = (a.getAttribute('href') || '').slice(2);
+    return document.getElementById(id);
+  });
+
+  function highlight(){
+    var stick = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--stick')) || 100;
+    var pos = window.pageYOffset + stick + 60;
+    var currentIdx = -1;
+    for(var i=0;i<sections.length;i++){
+      var s = sections[i];
+      if(s && s.offsetTop <= pos){ currentIdx = i; }
+    }
+    for(var j=0;j<sideLinks.length;j++){
+      sideLinks[j].classList.toggle('active', j === currentIdx);
+    }
+  }
+  window.addEventListener('scroll', highlight, {passive:true});
+  window.addEventListener('resize', highlight);
+  highlight();
+})();
+</script>
+
+</body>
+  </html>
